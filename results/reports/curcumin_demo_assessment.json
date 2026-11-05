@@ -1,0 +1,98 @@
+{
+  "run_date": "2026-11-05",
+  "input_smiles": "COc1cc(/C=C/C(=O)CC(=O)/C=C/c2ccc(O)c(OC)c2)ccc1O",
+  "interpretation": "Retrospective exact training-structure match; model estimate is uncalibrated. Exact ChEMBL assay record is part of the training source; this is not independent validation.",
+  "result": {
+    "properties": {
+      "canonical_smiles": "COc1cc(/C=C/C(=O)CC(=O)/C=C/c2ccc(O)c(OC)c2)ccc1O",
+      "formula": "C21H20O6",
+      "mw": 368.385,
+      "logp": 3.37,
+      "tpsa": 93.06,
+      "hbd": 2,
+      "hba": 6,
+      "rotatable_bonds": 8,
+      "fraction_csp3": 0.143
+    },
+    "probability_active": 0.1503771471944071,
+    "max_training_similarity": 1.0,
+    "applicability_threshold": 0.3235867074102369,
+    "in_domain": true,
+    "exact_training_match": true,
+    "nearest_training_examples": [
+      {
+        "chembl_id": "CHEMBL140",
+        "activity_id": 5245329,
+        "ic50_nM": 79200.0,
+        "label": "inactive",
+        "tanimoto": 1.0
+      },
+      {
+        "chembl_id": "CHEMBL109341",
+        "activity_id": 10834268,
+        "ic50_nM": 28000.0,
+        "label": "inactive",
+        "tanimoto": 0.48717948717948717
+      },
+      {
+        "chembl_id": "CHEMBL473518",
+        "activity_id": 2507764,
+        "ic50_nM": 21300.0,
+        "label": "inactive",
+        "tanimoto": 0.46153846153846156
+      }
+    ],
+    "score": {
+      "candidate_priority_score": 0.1503771471944071,
+      "score_basis": "Uncalibrated model probability only; never a clinical or efficacy score. No composite evidence weights.",
+      "model_prediction": {
+        "probability_active_uncalibrated": 0.1503771471944071,
+        "rankable_within_empirical_domain": true
+      },
+      "applicability_domain": {
+        "max_training_tanimoto": 1.0,
+        "threshold": 0.3235867074102369,
+        "status": "within empirical reference range",
+        "interpretation": "Relative similarity diagnostic, not a validated confidence guarantee."
+      },
+      "chemical_identity": {
+        "status": "structure matched to cached PubChem CID 969516 property record",
+        "pubchem_cid": 969516,
+        "confidence": "database-structure match; not physical sample authentication"
+      },
+      "observed_bioactivity": {
+        "status": "exact canonical-structure match in cached ChEMBL PTGS2 subset",
+        "chembl_id": "CHEMBL140",
+        "activity_id": 5245329,
+        "assay_chembl_id": "CHEMBL1686539",
+        "document_chembl_id": "CHEMBL1681761",
+        "ic50_nM": 79200.0,
+        "operational_band": "inactive",
+        "interpretation": "One curated representative record; inspect original assay/document before drawing broader conclusions."
+      },
+      "pharmacogenomic_evidence": {
+        "status": "not linked to candidate",
+        "note": "The separate CYP2C19-clopidogrel guideline demo must not be connected to curcumin or PTGS2."
+      },
+      "ethnobotanical_evidence": {
+        "status": "plant-level context only; not linked as evidence that the compound mediates this reported use",
+        "plant": "Curcuma longa L.",
+        "occurrence_source": "Wikidata Q312266 P703 Q42562",
+        "reported_use_claim_id": "VELAYUDHAN2012-T1-COUGH-COLD",
+        "reported_use": "Secondary-source report: cough/cold practice; this is not compound-specific evidence or efficacy."
+      },
+      "missing_evidence": [
+        "No candidate-linked pharmacogenomic association; separate CYP2C19-clopidogrel demo is unrelated",
+        "Ethnobotanical record is plant-level only, not compound-specific evidence"
+      ],
+      "uncertainty_and_limitations": [
+        "Model probabilities are not calibrated.",
+        "Single-target ChEMBL biochemical endpoint; no clinical response inference.",
+        "Assay heterogeneity and literature selection bias remain.",
+        "No experimental validation performed."
+      ]
+    },
+    "target": "PTGS2 human biochemical assay",
+    "warning": "Model output is an uncalibrated activity-band estimate, not mechanism, therapeutic benefit or patient-specific prediction. Exact training-set structure match: retrospective score, not prospective validation."
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "retrieval_date": "2026-11-05",
+  "records": [
+    {
+      "claim_id": "VELAYUDHAN2012-T1-COUGH-COLD",
+      "taxon": "Curcuma longa L.",
+      "claim_type": "secondary-source ethnomedicinal-use report",
+      "reported_indication_as_published": "Cough and cold",
+      "reported_material_and_preparation": "The article's Table 1 reports half a teaspoonful of fresh turmeric powder mixed with 30 ml of warm milk; it also reports inhalation of smoke from burning dried turmeric rhizome.",
+      "source_geographic_context": "An India-focused ethnobotany review by authors at NBPGR regional stations; the table says its information was collected from the Malayalam-language book Ayirathionnu Ottamoolikal (Namboodiri, 2004). The article does not assign this particular practice to a named community or precise locality.",
+      "evidence_status": "documented in a secondary ethnobotanical source; not a clinical or experimental efficacy result",
+      "source": {
+        "authors": ["K. C. Velayudhan", "N. Dikshit", "M. Abdul Nizar"],
+        "year": 2012,
+        "title": "Ethnobotany of turmeric (Curcuma longa L.)",
+        "journal": "Indian Journal of Traditional Knowledge",
+        "volume": "11",
+        "issue": "4",
+        "pages": "607-614",
+        "url": "https://nopr.niscpr.res.in/bitstream/123456789/14954/1/IJTK%2011(4)%20607-614.pdf",
+        "access_date": "2026-11-05",
+        "underlying_reference_reported_by_article": "Namboodiri. 2004. Ayirathionnu Ottamoolikal (Malayalam). Exact edition and access were not independently verified."
+      },
+      "limitations": [
+        "This is a report of a practice in literature, not evidence that the practice is safe or effective.",
+        "The cited article is secondary and attributes the table to an underlying Malayalam-language source; that original source was not independently accessed.",
+        "No specific community or exact locality is assigned to this table entry by the paper; KAPPA does not infer one.",
+        "The record is not linked to the PTGS2 assay, curcumin model prediction, clinical outcome, or a treatment recommendation."
+      ]
+    }
+  ]
+}

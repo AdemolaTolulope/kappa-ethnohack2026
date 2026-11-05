@@ -1,0 +1,6 @@
+measure,count
+Raw ChEMBL activities,7482
+Curated unique structures,3164
+Active band (<=1 uM),2505
+Inactive band (>=10 uM),659
+Distinct scaffolds,3164

@@ -1,0 +1,7 @@
+# Live query executed 2026-11-05. Checks the entity and P703 (found in taxon) statement.
+# Query endpoint: https://query.wikidata.org/sparql
+SELECT ?compound ?compoundLabel WHERE {
+  ?compound wdt:P703 wd:Q42562.
+  ?compound rdfs:label "curcumin"@en.
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+}

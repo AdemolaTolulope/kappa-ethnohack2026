@@ -1,0 +1,809 @@
+{
+  "task": "Human PTGS2 biochemical IC50 activity-band classification",
+  "endpoint": "IC50 \u2264 1,000 nM vs \u226510,000 nM; grey zone omitted",
+  "source": "ChEMBL REST API, target CHEMBL230",
+  "n_records": 3164,
+  "n_active": 2505,
+  "n_inactive": 659,
+  "overall_active_prevalence": 0.7917193426042983,
+  "n_scaffolds": 902,
+  "train_n": 2462,
+  "test_n": 702,
+  "train_active_prevalence": 0.7818846466287571,
+  "test_active_prevalence": 0.8262108262108262,
+  "test_scaffolds": 186,
+  "split": "first fixed fold of StratifiedGroupKFold(n_splits=5, shuffle=True, seed=17), groups=Bemis-Murcko scaffold; exact canonical structures deduplicated before split",
+  "seed": 17,
+  "scaffold_group_overlap": 0,
+  "cross_validation_training_scaffold_group": {
+    "Random forest": [
+      {
+        "roc_auc": 0.8474149548368297,
+        "pr_auc": 0.9393349622585256,
+        "precision_at_0_5": 0.8318042813455657,
+        "recall_at_0_5": 0.951048951048951,
+        "f1_at_0_5": 0.8874388254486134,
+        "balanced_accuracy_at_0_5": 0.6890661421911422,
+        "matthews_corrcoef_at_0_5": 0.4672046648501741,
+        "confusion_matrix_tn_fp_fn_tp": [
+          [
+            82,
+            110
+          ],
+          [
+            28,
+            544
+          ]
+        ],
+        "brier_score_uncalibrated": 0.1371424159896882,
+        "log_loss_uncalibrated": 0.43667147068500184,
+        "mean_predicted_probability": 0.6930489951372134,
+        "observed_prevalence": 0.7486910994764397
+      },
+      {
+        "roc_auc": 0.7991922120961059,
+        "pr_auc": 0.9432988137023626,
+        "precision_at_0_5": 0.8767361111111112,
+        "recall_at_0_5": 0.8890845070422535,
+        "f1_at_0_5": 0.8828671328671329,
+        "balanced_accuracy_at_0_5": 0.6835128417564209,
+        "matthews_corrcoef_at_0_5": 0.375684996821765,
+        "confusion_matrix_tn_fp_fn_tp": [
+          [
+            65,
+            71
+          ],
+          [
+            63,
+            505
+          ]
+        ],
+        "brier_score_uncalibrated": 0.1363454929958696,
+        "log_loss_uncalibrated": 0.42783615885195714,
+        "mean_predicted_probability": 0.7024597054172863,
+        "observed_prevalence": 0.8068181818181818
+      },
+      {
+        "roc_auc": 0.7826227409868041,
+        "pr_auc": 0.9226786968021075,
+        "precision_at_0_5": 0.8422818791946308,
+        "recall_at_0_5": 0.9592356687898089,
+        "f1_at_0_5": 0.8969624776652769,
+        "balanced_accuracy_at_0_5": 0.642297260232225,
+        "matthews_corrcoef_at_0_5": 0.38553671803949857,
+        "confusion_matrix_tn_fp_fn_tp": [
+          [
+            68,
+            141
+          ],
+          [
+            32,
+            753
+          ]
+        ],
+        "brier_score_uncalibrated": 0.13459389332243166,
+        "log_loss_uncalibrated": 0.4286403599727134,
+        "mean_predicted_probability": 0.7423153519350109,
+        "observed_prevalence": 0.789738430583501
+      }
+    ],
+    "Logistic regression": [
+      {
+        "roc_auc": 0.7563419653263403,
+        "pr_auc": 0.876874553344677,
+        "precision_at_0_5": 0.8571428571428571,
+        "recall_at_0_5": 0.7762237762237763,
+        "f1_at_0_5": 0.8146788990825689,
+        "balanced_accuracy_at_0_5": 0.6954035547785549,
+        "matthews_corrcoef_at_0_5": 0.3628095006541037,
+        "confusion_matrix_tn_fp_fn_tp": [
+          [
+            118,
+            74
+          ],
+          [
+            128,
+            444
+          ]
+        ],
+        "brier_score_uncalibrated": 0.20501392347535224,
+        "log_loss_uncalibrated": 0.8476948535684922,
+        "mean_predicted_probability": 0.6759403866439531,
+        "observed_prevalence": 0.7486910994764397
+      },
+      {
+        "roc_auc": 0.7226335956917977,
+        "pr_auc": 0.9045266991567371,
+        "precision_at_0_5": 0.8847736625514403,
+        "recall_at_0_5": 0.7570422535211268,
+        "f1_at_0_5": 0.8159392789373814,
+        "balanced_accuracy_at_0_5": 0.6726387738193869,
+        "matthews_corrcoef_at_0_5": 0.2948258633736593,
+        "confusion_matrix_tn_fp_fn_tp": [
+          [
+            80,
+            56
+          ],
+          [
+            138,
+            430
+          ]
+        ],
+        "brier_score_uncalibrated": 0.22010318695944173,
+        "log_loss_uncalibrated": 0.9389481448416226,
+        "mean_predicted_probability": 0.6728044291152472,
+        "observed_prevalence": 0.8068181818181818
+      },
+      {
+        "roc_auc": 0.6863072562703806,
+        "pr_auc": 0.8815781813374529,
+        "precision_at_0_5": 0.8407894736842105,
+        "recall_at_0_5": 0.8140127388535032,
+        "f1_at_0_5": 0.8271844660194175,
+        "balanced_accuracy_at_0_5": 0.6175326852162253,
+        "matthews_corrcoef_at_0_5": 0.22577814505234217,
+        "confusion_matrix_tn_fp_fn_tp": [
+          [
+            88,
+            121
+          ],
+          [
+            146,
+            639
+          ]
+        ],
+        "brier_score_uncalibrated": 0.20162583379025664,
+        "log_loss_uncalibrated": 0.7841241451339624,
+        "mean_predicted_probability": 0.7400243738440125,
+        "observed_prevalence": 0.789738430583501
+      }
+    ]
+  },
+  "hyperparameter_sensitivity_training_scaffold_cv": [
+    {
+      "parameters": {
+        "n_estimators": 200,
+        "min_samples_leaf": 1,
+        "max_features": "sqrt"
+      },
+      "fold_metrics": [
+        {
+          "roc_auc": 0.8589789117132867,
+          "pr_auc": 0.9419667144750408,
+          "precision_at_0_5": 0.8124098124098124,
+          "recall_at_0_5": 0.9842657342657343,
+          "f1_at_0_5": 0.8901185770750988,
+          "balanced_accuracy_at_0_5": 0.6535912004662005,
+          "matthews_corrcoef_at_0_5": 0.45893287364754004,
+          "confusion_matrix_tn_fp_fn_tp": [
+            [
+              62,
+              130
+            ],
+            [
+              9,
+              563
+            ]
+          ],
+          "brier_score_uncalibrated": 0.12974323380750424,
+          "log_loss_uncalibrated": 0.4119787358217525,
+          "mean_predicted_probability": 0.7453251796534643,
+          "observed_prevalence": 0.7486910994764397
+        },
+        {
+          "roc_auc": 0.805846106048053,
+          "pr_auc": 0.944765683460536,
+          "precision_at_0_5": 0.8644628099173554,
+          "recall_at_0_5": 0.920774647887324,
+          "f1_at_0_5": 0.8917306052855924,
+          "balanced_accuracy_at_0_5": 0.6589167357083678,
+          "matthews_corrcoef_at_0_5": 0.3609507667976603,
+          "confusion_matrix_tn_fp_fn_tp": [
+            [
+              54,
+              82
+            ],
+            [
+              45,
+              523
+            ]
+          ],
+          "brier_score_uncalibrated": 0.12645305259031553,
+          "log_loss_uncalibrated": 0.39818585108457766,
+          "mean_predicted_probability": 0.7514647855459234,
+          "observed_prevalence": 0.8068181818181818
+        },
+        {
+          "roc_auc": 0.7852832718739524,
+          "pr_auc": 0.9230787757133749,
+          "precision_at_0_5": 0.82829373650108,
+          "recall_at_0_5": 0.9770700636942675,
+          "f1_at_0_5": 0.896551724137931,
+          "balanced_accuracy_at_0_5": 0.6081522567275165,
+          "matthews_corrcoef_at_0_5": 0.3491512517243484,
+          "confusion_matrix_tn_fp_fn_tp": [
+            [
+              50,
+              159
+            ],
+            [
+              18,
+              767
+            ]
+          ],
+          "brier_score_uncalibrated": 0.13198610827206972,
+          "log_loss_uncalibrated": 0.41845349444150504,
+          "mean_predicted_probability": 0.7910493872586587,
+          "observed_prevalence": 0.789738430583501
+        }
+      ],
+      "mean_roc_auc": 0.8167027632117639,
+      "sd_roc_auc": 0.03802843786444542,
+      "mean_pr_auc": 0.9366037245496507,
+      "mean_balanced_accuracy": 0.6402200643006949
+    },
+    {
+      "parameters": {
+        "n_estimators": 350,
+        "min_samples_leaf": 2,
+        "max_features": "sqrt"
+      },
+      "fold_metrics": [
+        {
+          "roc_auc": 0.8446924169580419,
+          "pr_auc": 0.9385102149872411,
+          "precision_at_0_5": 0.8237082066869301,
+          "recall_at_0_5": 0.9475524475524476,
+          "f1_at_0_5": 0.8813008130081301,
+          "balanced_accuracy_at_0_5": 0.6716928904428905,
+          "matthews_corrcoef_at_0_5": 0.43088865244694463,
+          "confusion_matrix_tn_fp_fn_tp": [
+            [
+              76,
+              116
+            ],
+            [
+              30,
+              542
+            ]
+          ],
+          "brier_score_uncalibrated": 0.1379595672305235,
+          "log_loss_uncalibrated": 0.4382790653862707,
+          "mean_predicted_probability": 0.693858304521098,
+          "observed_prevalence": 0.7486910994764397
+        },
+        {
+          "roc_auc": 0.7985320008285003,
+          "pr_auc": 0.9428371401638588,
+          "precision_at_0_5": 0.8795811518324608,
+          "recall_at_0_5": 0.8873239436619719,
+          "f1_at_0_5": 0.8834355828220859,
+          "balanced_accuracy_at_0_5": 0.6899855012427507,
+          "matthews_corrcoef_at_0_5": 0.3854615983362552,
+          "confusion_matrix_tn_fp_fn_tp": [
+            [
+              67,
+              69
+            ],
+            [
+              64,
+              504
+            ]
+          ],
+          "brier_score_uncalibrated": 0.13673993540724616,
+          "log_loss_uncalibrated": 0.4281470498927628,
+          "mean_predicted_probability": 0.7024785757250797,
+          "observed_prevalence": 0.8068181818181818
+        },
+        {
+          "roc_auc": 0.7804833450156949,
+          "pr_auc": 0.9228901156385574,
+          "precision_at_0_5": 0.845464725643897,
+          "recall_at_0_5": 0.9617834394904459,
+          "f1_at_0_5": 0.899880810488677,
+          "balanced_accuracy_at_0_5": 0.6507481790753664,
+          "matthews_corrcoef_at_0_5": 0.4066339410555949,
+          "confusion_matrix_tn_fp_fn_tp": [
+            [
+              71,
+              138
+            ],
+            [
+              30,
+              755
+            ]
+          ],
+          "brier_score_uncalibrated": 0.13559124662278313,
+          "log_loss_uncalibrated": 0.43079979286040065,
+          "mean_predicted_probability": 0.7381790820960303,
+          "observed_prevalence": 0.789738430583501
+        }
+      ],
+      "mean_roc_auc": 0.8079025876007457,
+      "sd_roc_auc": 0.03311430434519962,
+      "mean_pr_auc": 0.9347458235965526,
+      "mean_balanced_accuracy": 0.670808856920336
+    },
+    {
+      "parameters": {
+        "n_estimators": 350,
+        "min_samples_leaf": 5,
+        "max_features": "sqrt"
+      },
+      "fold_metrics": [
+        {
+          "roc_auc": 0.8247605259324009,
+          "pr_auc": 0.92886444184813,
+          "precision_at_0_5": 0.872791519434629,
+          "recall_at_0_5": 0.8636363636363636,
+          "f1_at_0_5": 0.8681898066783831,
+          "balanced_accuracy_at_0_5": 0.7443181818181819,
+          "matthews_corrcoef_at_0_5": 0.48371950686481036,
+          "confusion_matrix_tn_fp_fn_tp": [
+            [
+              120,
+              72
+            ],
+            [
+              78,
+              494
+            ]
+          ],
+          "brier_score_uncalibrated": 0.15977669696170083,
+          "log_loss_uncalibrated": 0.49623818539174874,
+          "mean_predicted_probability": 0.6185500171671008,
+          "observed_prevalence": 0.7486910994764397
+        },
+        {
+          "roc_auc": 0.7845769469759736,
+          "pr_auc": 0.9375182232358098,
+          "precision_at_0_5": 0.8857677902621723,
+          "recall_at_0_5": 0.8327464788732394,
+          "f1_at_0_5": 0.8584392014519057,
+          "balanced_accuracy_at_0_5": 0.6921085335542667,
+          "matthews_corrcoef_at_0_5": 0.3544256833412485,
+          "confusion_matrix_tn_fp_fn_tp": [
+            [
+              75,
+              61
+            ],
+            [
+              95,
+              473
+            ]
+          ],
+          "brier_score_uncalibrated": 0.15903380352462826,
+          "log_loss_uncalibrated": 0.48717113900731,
+          "mean_predicted_probability": 0.6381305670495109,
+          "observed_prevalence": 0.8068181818181818
+        },
+        {
+          "roc_auc": 0.7561698107457411,
+          "pr_auc": 0.9141689898199808,
+          "precision_at_0_5": 0.8547008547008547,
+          "recall_at_0_5": 0.89171974522293,
+          "f1_at_0_5": 0.8728179551122195,
+          "balanced_accuracy_at_0_5": 0.661170877396154,
+          "matthews_corrcoef_at_0_5": 0.34487646794457233,
+          "confusion_matrix_tn_fp_fn_tp": [
+            [
+              90,
+              119
+            ],
+            [
+              85,
+              700
+            ]
+          ],
+          "brier_score_uncalibrated": 0.1541851458751454,
+          "log_loss_uncalibrated": 0.47950479591536904,
+          "mean_predicted_probability": 0.6696150883827133,
+          "observed_prevalence": 0.789738430583501
+        }
+      ],
+      "mean_roc_auc": 0.7885024278847051,
+      "sd_roc_auc": 0.034463438637605266,
+      "mean_pr_auc": 0.9268505516346401,
+      "mean_balanced_accuracy": 0.6991991975895342
+    },
+    {
+      "parameters": {
+        "n_estimators": 500,
+        "min_samples_leaf": 5,
+        "max_features": "log2"
+      },
+      "fold_metrics": [
+        {
+          "roc_auc": 0.8195795090326339,
+          "pr_auc": 0.9261375226925063,
+          "precision_at_0_5": 0.875,
+          "recall_at_0_5": 0.8199300699300699,
+          "f1_at_0_5": 0.8465703971119134,
+          "balanced_accuracy_at_0_5": 0.7354858682983683,
+          "matthews_corrcoef_at_0_5": 0.44647141212966523,
+          "confusion_matrix_tn_fp_fn_tp": [
+            [
+              125,
+              67
+            ],
+            [
+              103,
+              469
+            ]
+          ],
+          "brier_score_uncalibrated": 0.1780601559299887,
+          "log_loss_uncalibrated": 0.5410104890652266,
+          "mean_predicted_probability": 0.5784508351720774,
+          "observed_prevalence": 0.7486910994764397
+        },
+        {
+          "roc_auc": 0.7854960646230322,
+          "pr_auc": 0.9386971254263454,
+          "precision_at_0_5": 0.8897485493230174,
+          "recall_at_0_5": 0.8098591549295775,
+          "f1_at_0_5": 0.847926267281106,
+          "balanced_accuracy_at_0_5": 0.6953707539353771,
+          "matthews_corrcoef_at_0_5": 0.3492746734907656,
+          "confusion_matrix_tn_fp_fn_tp": [
+            [
+              79,
+              57
+            ],
+            [
+              108,
+              460
+            ]
+          ],
+          "brier_score_uncalibrated": 0.17142708836812587,
+          "log_loss_uncalibrated": 0.5221939759606292,
+          "mean_predicted_probability": 0.6043873980857429,
+          "observed_prevalence": 0.8068181818181818
+        },
+        {
+          "roc_auc": 0.73643373053363,
+          "pr_auc": 0.904082598387615,
+          "precision_at_0_5": 0.8553459119496856,
+          "recall_at_0_5": 0.8662420382165605,
+          "f1_at_0_5": 0.8607594936708861,
+          "balanced_accuracy_at_0_5": 0.6580014018834,
+          "matthews_corrcoef_at_0_5": 0.32180204885988567,
+          "confusion_matrix_tn_fp_fn_tp": [
+            [
+              94,
+              115
+            ],
+            [
+              105,
+              680
+            ]
+          ],
+          "brier_score_uncalibrated": 0.16809505135907693,
+          "log_loss_uncalibrated": 0.5156782055344706,
+          "mean_predicted_probability": 0.6333894332002119,
+          "observed_prevalence": 0.789738430583501
+        }
+      ],
+      "mean_roc_auc": 0.7805031013964321,
+      "sd_roc_auc": 0.04179715758144313,
+      "mean_pr_auc": 0.9229724155021555,
+      "mean_balanced_accuracy": 0.6962860080390484
+    }
+  ],
+  "primary_models": {
+    "Random forest": {
+      "roc_auc": 0.7818965517241379,
+      "pr_auc": 0.9396473737101695,
+      "precision_at_0_5": 0.8700475435816165,
+      "recall_at_0_5": 0.946551724137931,
+      "f1_at_0_5": 0.9066886870355079,
+      "balanced_accuracy_at_0_5": 0.6372102882984737,
+      "matthews_corrcoef_at_0_5": 0.34487898417305257,
+      "confusion_matrix_tn_fp_fn_tp": [
+        [
+          40,
+          82
+        ],
+        [
+          31,
+          549
+        ]
+      ],
+      "brier_score_uncalibrated": 0.1284361618464094,
+      "log_loss_uncalibrated": 0.4134727218892182,
+      "mean_predicted_probability": 0.7229932563062534,
+      "observed_prevalence": 0.8262108262108262
+    },
+    "Logistic regression": {
+      "roc_auc": 0.7034906726964387,
+      "pr_auc": 0.9068371886674716,
+      "precision_at_0_5": 0.8745173745173745,
+      "recall_at_0_5": 0.7810344827586206,
+      "f1_at_0_5": 0.825136612021858,
+      "balanced_accuracy_at_0_5": 0.6241237987563595,
+      "matthews_corrcoef_at_0_5": 0.21389723713565897,
+      "confusion_matrix_tn_fp_fn_tp": [
+        [
+          57,
+          65
+        ],
+        [
+          127,
+          453
+        ]
+      ],
+      "brier_score_uncalibrated": 0.20197792794903602,
+      "log_loss_uncalibrated": 0.7334479893909119,
+      "mean_predicted_probability": 0.7240227067524286,
+      "observed_prevalence": 0.8262108262108262
+    }
+  },
+  "publication_and_scaffold_disjoint_stress_test": {
+    "test_n": 567,
+    "test_document_count": 71,
+    "train_n_after_removing_shared_scaffolds": 2043,
+    "shared_scaffold_groups_removed_from_train": 36,
+    "scaffold_overlap_after_filter": 0,
+    "interpretation": "Internal ChEMBL publication-held-out stress test with scaffold-disjoint train/test. Not external database validation.",
+    "random_forest": {
+      "roc_auc": 0.7235083028426681,
+      "pr_auc": 0.8481328901937946,
+      "precision_at_0_5": 0.6869070208728653,
+      "recall_at_0_5": 0.9526315789473684,
+      "f1_at_0_5": 0.7982359426681367,
+      "balanced_accuracy_at_0_5": 0.5351393188854489,
+      "matthews_corrcoef_at_0_5": 0.1290329520134552,
+      "confusion_matrix_tn_fp_fn_tp": [
+        [
+          22,
+          165
+        ],
+        [
+          18,
+          362
+        ]
+      ],
+      "brier_score_uncalibrated": 0.19627720818309452,
+      "log_loss_uncalibrated": 0.5715641273338167,
+      "mean_predicted_probability": 0.7130705722780966,
+      "observed_prevalence": 0.6701940035273368
+    }
+  },
+  "temporal_and_scaffold_disjoint_stress_test": {
+    "cutoff": "2019-01-01; test publication year >= 2019, train < 2019",
+    "test_n": 944,
+    "train_n_after_scaffold_exclusion": 1689,
+    "missing_year_excluded": 11,
+    "shared_scaffold_groups_removed_from_train": 35,
+    "scaffold_overlap_after_filter": 0,
+    "interpretation": "Temporal stress test within ChEMBL, additionally scaffold-disjoint; not external validation. Canonical duplicate collapse retains one representative record chosen by lowest IC50, so publication year may not be first report.",
+    "random_forest": {
+      "roc_auc": 0.6022075465848138,
+      "pr_auc": 0.9065468012844082,
+      "precision_at_0_5": 0.9085365853658537,
+      "recall_at_0_5": 0.5405078597339782,
+      "f1_at_0_5": 0.6777862016679302,
+      "balanced_accuracy_at_0_5": 0.5779462375592967,
+      "matthews_corrcoef_at_0_5": 0.10282981850997039,
+      "confusion_matrix_tn_fp_fn_tp": [
+        [
+          72,
+          45
+        ],
+        [
+          380,
+          447
+        ]
+      ],
+      "brier_score_uncalibrated": 0.244984597878738,
+      "log_loss_uncalibrated": 0.6810620785044963,
+      "mean_predicted_probability": 0.5152027410749175,
+      "observed_prevalence": 0.8760593220338984
+    }
+  },
+  "calibration_diagnostics": {
+    "Random forest": {
+      "expected_calibration_error_10_equal_width_bins": 0.11980688873383372,
+      "reliability_bins": [
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "n": 1,
+          "mean_probability": 0.18576016658182312,
+          "observed_rate": 0.0
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.30000000000000004,
+          "n": 13,
+          "mean_probability": 0.2637228625072087,
+          "observed_rate": 0.07692307692307693
+        },
+        {
+          "lower": 0.30000000000000004,
+          "upper": 0.4,
+          "n": 18,
+          "mean_probability": 0.3449274183275032,
+          "observed_rate": 0.16666666666666666
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "n": 39,
+          "mean_probability": 0.458640846245295,
+          "observed_rate": 0.6923076923076923
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6000000000000001,
+          "n": 92,
+          "mean_probability": 0.5651382661309254,
+          "observed_rate": 0.717391304347826
+        },
+        {
+          "lower": 0.6000000000000001,
+          "upper": 0.7000000000000001,
+          "n": 148,
+          "mean_probability": 0.6480462677999044,
+          "observed_rate": 0.8175675675675675
+        },
+        {
+          "lower": 0.7000000000000001,
+          "upper": 0.8,
+          "n": 96,
+          "mean_probability": 0.7515581237510061,
+          "observed_rate": 0.8229166666666666
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "n": 201,
+          "mean_probability": 0.85683320195835,
+          "observed_rate": 0.9552238805970149
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "n": 94,
+          "mean_probability": 0.9314340470446478,
+          "observed_rate": 0.9680851063829787
+        }
+      ],
+      "brier_skill_vs_train_prevalence_constant": 0.11758839929772824,
+      "note": "Brier/log-loss/ECE are descriptive on held-out data; no probability calibration was fitted."
+    },
+    "Logistic regression": {
+      "expected_calibration_error_10_equal_width_bins": 0.18744564023169347,
+      "reliability_bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "n": 68,
+          "mean_probability": 0.03364396128988613,
+          "observed_rate": 0.5735294117647058
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "n": 41,
+          "mean_probability": 0.15496938687163705,
+          "observed_rate": 0.7317073170731707
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.30000000000000004,
+          "n": 22,
+          "mean_probability": 0.24907570081909333,
+          "observed_rate": 0.6818181818181818
+        },
+        {
+          "lower": 0.30000000000000004,
+          "upper": 0.4,
+          "n": 26,
+          "mean_probability": 0.3542808933650999,
+          "observed_rate": 0.7692307692307693
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "n": 27,
+          "mean_probability": 0.4481098791569494,
+          "observed_rate": 0.8518518518518519
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6000000000000001,
+          "n": 21,
+          "mean_probability": 0.5524313853885444,
+          "observed_rate": 0.8571428571428571
+        },
+        {
+          "lower": 0.6000000000000001,
+          "upper": 0.7000000000000001,
+          "n": 30,
+          "mean_probability": 0.6435340547806319,
+          "observed_rate": 0.7666666666666667
+        },
+        {
+          "lower": 0.7000000000000001,
+          "upper": 0.8,
+          "n": 34,
+          "mean_probability": 0.748625401185213,
+          "observed_rate": 0.7058823529411765
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "n": 55,
+          "mean_probability": 0.8513974102110741,
+          "observed_rate": 0.8
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "n": 378,
+          "mean_probability": 0.9778975359511125,
+          "observed_rate": 0.91005291005291
+        }
+      ],
+      "brier_skill_vs_train_prevalence_constant": -0.38767512315706565,
+      "note": "Brier/log-loss/ECE are descriptive on held-out data; no probability calibration was fitted."
+    },
+    "prevalence_baseline": {
+      "train_prevalence": 0.7818846466287571,
+      "test_brier": 0.14555130705919192,
+      "test_log_loss": 0.4679217702361728
+    }
+  },
+  "ad_diagnostics": {
+    "method": "5th percentile of max Morgan r2 Tanimoto similarities for training-only 3-fold scaffold out-of-fold molecules against their fold training set",
+    "threshold": 0.3235867074102369,
+    "holdout_test_below_threshold_fraction": 0.018518518518518517,
+    "test_max_similarity_quantiles": {
+      "0": 0.23809523809523808,
+      "0.05": 0.37525000000000003,
+      "0.25": 0.5185185185185185,
+      "0.5": 0.6190476190476191,
+      "0.75": 0.7185496794871795,
+      "1": 0.9838709677419355
+    },
+    "warning": "A relative similarity diagnostic, not a calibrated probability of correctness or validated domain boundary."
+  },
+  "global_grouped_permutation_importance": {
+    "MW": {
+      "mean_roc_auc_drop": 0.01006218202374214,
+      "sd": 0.0015182303164846156
+    },
+    "LogP": {
+      "mean_roc_auc_drop": 0.01387083097795352,
+      "sd": 0.0031554310581900203
+    },
+    "TPSA": {
+      "mean_roc_auc_drop": 0.002044940644431814,
+      "sd": 0.0028542779882409957
+    },
+    "HBD": {
+      "mean_roc_auc_drop": -0.0004918032786885851,
+      "sd": 0.0015651177410081845
+    },
+    "HBA": {
+      "mean_roc_auc_drop": 0.005158281514980168,
+      "sd": 0.0012112854641437721
+    },
+    "Rotatable bonds": {
+      "mean_roc_auc_drop": 0.002225833804409194,
+      "sd": 0.0009033499865429268
+    },
+    "Fraction Csp3": {
+      "mean_roc_auc_drop": 0.004185980780101617,
+      "sd": 0.0024614095941513595
+    },
+    "Morgan fingerprint block (512 bits)": {
+      "mean_roc_auc_drop": 0.22243640474844542,
+      "sd": 0.01823103447846429
+    }
+  },
+  "best_model": "Random Forest as prespecified primary; no test-set model selection. Hyperparameter sensitivity reported on training-only CV.",
+  "external_validation": "Not available/performed. Publication- and temporal-held-out analyses are internal ChEMBL stress tests, not external validation.",
+  "retrieved_activity_count_total": 7482,
+  "raw_record_count": 7482
+}

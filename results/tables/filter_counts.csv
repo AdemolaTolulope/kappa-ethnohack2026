@@ -1,0 +1,11 @@
+measure,count
+missing_or_non_numeric_value,19
+nonpositive_or_nonfinite_value,7
+non_exact_relation,1070
+wrong_units,0
+not_single_protein_assay,90
+nonhuman_target,0
+duplicate_flag,1003
+validity_flag,257
+weak_intermediate_band,1374
+invalid_structure,1

@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use KAPPA, cite the software and its upstream datasets as detailed in docs/data_provenance.md."
+title: "KAPPA: Knowledge-guided AI for Phyto-Pharmacogenomic Assessment"
+type: software
+version: 0.1.0
+date-released: 2026-11-05
+license: MIT
+abstract: "An evidence-aware research prototype integrating natural-product occurrence context, cheminformatics, measured target bioactivity, scaffold-aware machine learning and provenance-bearing knowledge graph exploration."

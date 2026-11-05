@@ -1,0 +1,883 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d21" for="edge" attr.name="activity_id" attr.type="long"/>
+<key id="d20" for="edge" attr.name="source" attr.type="string"/>
+<key id="d19" for="edge" attr.name="evidence" attr.type="string"/>
+<key id="d18" for="edge" attr.name="relation" attr.type="string"/>
+<key id="d17" for="node" attr.name="implication" attr.type="string"/>
+<key id="d16" for="node" attr.name="context_note" attr.type="string"/>
+<key id="d15" for="node" attr.name="population_context" attr.type="string"/>
+<key id="d14" for="node" attr.name="recommendation" attr.type="string"/>
+<key id="d13" for="node" attr.name="version" attr.type="string"/>
+<key id="d12" for="node" attr.name="note" attr.type="string"/>
+<key id="d11" for="node" attr.name="germline_last_evaluated" attr.type="string"/>
+<key id="d10" for="node" attr.name="germline_classification" attr.type="string"/>
+<key id="d9" for="node" attr.name="url" attr.type="string"/>
+<key id="d8" for="node" attr.name="function" attr.type="string"/>
+<key id="d7" for="node" attr.name="smiles" attr.type="string"/>
+<key id="d6" for="node" attr.name="evidence_status" attr.type="string"/>
+<key id="d5" for="node" attr.name="context" attr.type="string"/>
+<key id="d4" for="node" attr.name="preparation" attr.type="string"/>
+<key id="d3" for="node" attr.name="claim_id" attr.type="string"/>
+<key id="d2" for="node" attr.name="source" attr.type="string"/>
+<key id="d1" for="node" attr.name="label" attr.type="string"/>
+<key id="d0" for="node" attr.name="kind" attr.type="string"/>
+<graph edgedefault="directed"><node id="plant:curcuma_longa">
+  <data key="d0">plant</data>
+  <data key="d1">Curcuma longa L. (Wikidata Q42562)</data>
+  <data key="d2">Wikidata taxon Q42562; checked 2026-11-05</data>
+</node>
+<node id="compound:curcumin">
+  <data key="d0">compound</data>
+  <data key="d1">Curcumin (Wikidata Q312266)</data>
+  <data key="d2">PubChem CID 969516; ChEMBL structure cross-reference; Wikidata Q312266</data>
+</node>
+<node id="target:PTGS2">
+  <data key="d0">target</data>
+  <data key="d1">PTGS2 / COX-2</data>
+  <data key="d2">UniProt P35354; ChEMBL CHEMBL230</data>
+</node>
+<node id="task:chembl_model">
+  <data key="d0">prediction</data>
+  <data key="d1">PTGS2 activity model</data>
+  <data key="d2">KAPPA scaffold benchmark; uncalibrated inference</data>
+</node>
+<node id="use:VELAYUDHAN2012-T1-COUGH-COLD">
+  <data key="d0">traditional_use_report</data>
+  <data key="d1">Cough and cold</data>
+  <data key="d2">K. C. Velayudhan et al. (2012)</data>
+  <data key="d3">VELAYUDHAN2012-T1-COUGH-COLD</data>
+  <data key="d4">The article's Table 1 reports half a teaspoonful of fresh turmeric powder mixed with 30 ml of warm milk; it also reports inhalation of smoke from burning dried turmeric rhizome.</data>
+  <data key="d5">An India-focused ethnobotany review by authors at NBPGR regional stations; the table says its information was collected from the Malayalam-language book Ayirathionnu Ottamoolikal (Namboodiri, 2004). The article does not assign this particular practice to a named community or precise locality.</data>
+  <data key="d6">documented in a secondary ethnobotanical source; not a clinical or experimental efficacy result</data>
+</node>
+<node id="compound:CHEMBL525247">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL525247</data>
+  <data key="d7">Cc1ccc2[nH]c(-c3ccc(S(N)(=O)=O)cc3)c(-c3ccccc3)c2c1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL501208">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL501208</data>
+  <data key="d7">CS(=O)(=O)c1ccc(-c2[nH]c3ccccc3c2-c2ccc(F)cc2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL499069">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL499069</data>
+  <data key="d7">COc1ccc(-c2c(-c3ccc(S(C)(=O)=O)cc3)[nH]c3ccccc23)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL502555">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL502555</data>
+  <data key="d7">Cc1ccc(-c2c(-c3ccc(S(N)(=O)=O)cc3)[nH]c3ccccc23)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL143776">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL143776</data>
+  <data key="d7">Fc1ccc(-c2[nH]c(-c3ccc(F)cc3)c3c2C2CCC3C2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL500936">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL500936</data>
+  <data key="d7">NS(=O)(=O)c1ccc(-c2[nH]c3ccccc3c2-c2ccccc2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL524543">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL524543</data>
+  <data key="d7">Cc1ccc(-c2c(-c3ccc(S(C)(=O)=O)cc3)[nH]c3ccccc23)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL256250">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL256250</data>
+  <data key="d7">NNC(N)=S</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL140167">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL140167</data>
+  <data key="d7">Fc1ccc(-c2[nH]c(-c3ccc(F)cc3)c3c2C2CCC3CC2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL499349">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL499349</data>
+  <data key="d7">NS(=O)(=O)c1ccc(-c2[nH]c3ccc(Cl)cc3c2-c2ccccc2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL6">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL6</data>
+  <data key="d7">COc1ccc2c(c1)c(CC(=O)O)c(C)n2C(=O)c1ccc(Cl)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL525021">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL525021</data>
+  <data key="d7">Cc1ccc(-c2c(-c3ccc(S(C)(=O)=O)cc3)[nH]c3ccccc23)cc1C</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL500943">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL500943</data>
+  <data key="d7">CC(=O)NS(=O)(=O)c1ccc(-c2[nH]c3ccccc3c2-c2ccccc2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL4582020">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL4582020</data>
+  <data key="d7">Cc1c(CC(C)C(=O)O)cccc1NC(=O)C(c1ccc(-c2cncc(Cl)c2)cc1)C1CCCC1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL1958349">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL1958349</data>
+  <data key="d7">CC(C)Cc1ccc(C(C)C(=O)Oc2ccc(CCO)cc2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL551829">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL551829</data>
+  <data key="d7">CS(=O)(=O)c1ccc(-c2cc(C(F)(F)F)nc(NCc3ccccc3)n2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL525250">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL525250</data>
+  <data key="d7">Cc1ccc2[nH]c(-c3ccc(S(C)(=O)=O)cc3)c(-c3ccccc3)c2c1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL551148">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL551148</data>
+  <data key="d7">CS(=O)(=O)c1ccc(-c2cc(C(F)(F)F)nc(NCc3ccc(F)cc3)n2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL271173">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL271173</data>
+  <data key="d7">CCOc1cc(NCc2cccs2)nc(-c2ccc(S(C)(=O)=O)cc2)n1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL423296">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL423296</data>
+  <data key="d7">COc1ccc2c(c1)c(Cc1nc(-c3ccc(Br)cc3)cs1)c(C)n2C(=O)c1ccc(Cl)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL502285">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL502285</data>
+  <data key="d7">CS(=O)(=O)c1ccc(-c2[nH]c3ccc(Cl)cc3c2-c2ccccc2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL502554">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL502554</data>
+  <data key="d7">CS(=O)(=O)c1ccc(-c2[nH]c3ccccc3c2-c2ccc(Br)cc2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL270293">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL270293</data>
+  <data key="d7">COc1cc(NCc2cccs2)nc(-c2ccc(S(C)(=O)=O)cc2)n1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL186632">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL186632</data>
+  <data key="d7">CCOc1ccc(-c2nn3ncccc3c2-c2ccc(S(N)(=O)=O)cc2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL282093">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL282093</data>
+  <data key="d7">NS(=O)(=O)c1ccc(-n2nc(C(F)(F)F)cc2-c2ccc(Cl)cc2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL108201">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL108201</data>
+  <data key="d7">COc1ccc(C2=C(c3ccc(S(C)(=O)=O)cc3)CCC2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL561891">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL561891</data>
+  <data key="d7">CS(=O)(=O)c1ccc(-c2cc(C(F)(F)F)nc(NC3CCCCC3)n2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL118">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL118</data>
+  <data key="d7">Cc1ccc(-c2cc(C(F)(F)F)nn2-c2ccc(S(N)(=O)=O)cc2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL500674">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL500674</data>
+  <data key="d7">NS(=O)(=O)c1ccc(-c2[nH]c3ccc(Cl)cc3c2-c2ccc(Cl)cc2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL499070">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL499070</data>
+  <data key="d7">CS(=O)(=O)c1ccc(-c2[nH]c3ccccc3c2-c2ccccc2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL500675">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL500675</data>
+  <data key="d7">CS(=O)(=O)c1ccc(-c2[nH]c3ccc(Cl)cc3c2-c2cccc(Cl)c2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL28155">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL28155</data>
+  <data key="d7">COc1ccc2c(c1)c(Cc1nc(-c3csc4ccccc34)cs1)c(C)n2C(=O)c1ccc(Cl)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL5089355">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL5089355</data>
+  <data key="d7">O=C1NC(=O)C(=Cc2cn(C[C@H](O)COc3cc(O)c4c(=O)cc(-c5ccccc5)oc4c3)c3ccccc23)C(=O)N1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL122">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL122</data>
+  <data key="d7">CS(=O)(=O)c1ccc(C2=C(c3ccccc3)C(=O)OC2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL7162">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL7162</data>
+  <data key="d7">CS(=O)(=O)Nc1ccc([N+](=O)[O-])cc1OC1CCCCC1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL432945">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL432945</data>
+  <data key="d7">COc1ccc(C2=C(c3ccc(S(N)(=O)=O)cc3)CC3(CC3)C2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL5200454">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL5200454</data>
+  <data key="d7">CS(=O)(=O)c1ccc(-c2cc(O[11CH3])nc(NCc3cccs3)n2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL313387">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL313387</data>
+  <data key="d7">NS(=O)(=O)c1ccc(C2=C(c3ccc(Cl)c(Cl)c3)CC3(CC3)C2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL88717">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL88717</data>
+  <data key="d7">NS(=O)(=O)c1ccc(C2=C(c3ccc(Cl)cc3)CC3(CC3)C2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL330314">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL330314</data>
+  <data key="d7">NS(=O)(=O)c1ccc(C2=C(c3ccc(C(F)(F)F)cc3)CC3(CC3)C2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL327384">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL327384</data>
+  <data key="d7">CS(=O)(=O)c1ccc(C2=C(c3ccc(Cl)cc3)CC3(CC3)C2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL92154">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL92154</data>
+  <data key="d7">CS(=O)(=O)c1ccc(C2=C(c3ccc(F)cc3)CC3(CC3)C2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL4851853">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL4851853</data>
+  <data key="d7">Cc1ccc(-c2cc(C)n(S(=O)(=O)Oc3ccccc3)n2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL272433">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL272433</data>
+  <data key="d7">CCSc1cc(NCc2cccs2)nc(-c2ccc(S(C)(=O)=O)cc2)n1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL91118">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL91118</data>
+  <data key="d7">C=C1CC(c2ccc(S(C)(=O)=O)cc2)=C1c1ccccc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL270078">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL270078</data>
+  <data key="d7">CS(=O)(=O)c1ccc(-c2nc(Cl)cc(NCc3cccs3)n2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL93372">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL93372</data>
+  <data key="d7">CC(=O)Oc1ccc(C2=C(c3ccc(S(C)(=O)=O)cc3)COC2=O)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL86363">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL86363</data>
+  <data key="d7">COc1ccc(C2=C(c3ccc(S(C)(=O)=O)cc3)CC3(CC3)C2)cc1Br</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL1034">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL1034</data>
+  <data key="d7">O=C([O-])Cc1ccccc1Nc1c(Cl)cccc1Cl.[Na+]</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL3314084">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL3314084</data>
+  <data key="d7">O=C1/C(=C/c2coc3ccccc3c2=O)c2ccccc2N1c1c(Cl)cccc1Cl</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL549393">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL549393</data>
+  <data key="d7">CCCCNc1nc(-c2ccc(S(C)(=O)=O)cc2)cc(C(F)(F)F)n1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL527107">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL527107</data>
+  <data key="d7">CS(=O)(=O)c1ccc(-c2[nH]c3ccc(Br)cc3c2-c2ccccc2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL502556">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL502556</data>
+  <data key="d7">Cc1ccc(-c2c(-c3ccc(S(N)(=O)=O)cc3)[nH]c3ccccc23)cc1C</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL92102">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL92102</data>
+  <data key="d7">Cc1ccc(C2=C(c3ccc(S(C)(=O)=O)cc3)CC3(CC3)C2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL312822">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL312822</data>
+  <data key="d7">NS(=O)(=O)c1ccc(C2=C(c3ccc(F)c(Cl)c3)CC3(CC3)C2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL93024">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL93024</data>
+  <data key="d7">CC(=O)Oc1cccc(C2=C(c3ccc(S(C)(=O)=O)cc3)COC2=O)c1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL29766">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL29766</data>
+  <data key="d7">NS(=O)(=O)c1ccc(-n2nc(C(F)(F)F)c(F)c2-c2ccccc2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL5208551">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL5208551</data>
+  <data key="d7">NS(=O)(=O)c1ccc(-n2nc(C(F)(F)F)c([18F])c2-c2ccccc2)cc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL5592921">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL5592921</data>
+  <data key="d7">COc1ccc2cc(C(C)C(=O)O/N=C(\N)c3ccc(-c4ccccc4)c(-c4ccccc4)c3)ccc2c1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="compound:CHEMBL214101">
+  <data key="d0">compound</data>
+  <data key="d1">CHEMBL214101</data>
+  <data key="d7">O=C1OCC(c2ccc(-c3nn[nH]n3)cc2)=C1c1ccccc1</data>
+  <data key="d2">ChEMBL</data>
+</node>
+<node id="pgx:gene:CYP2C19">
+  <data key="d0">pharmacogene</data>
+  <data key="d1">CYP2C19</data>
+  <data key="d2">CPIC API gene record; HGNC HGNC:2621</data>
+</node>
+<node id="pgx:allele:CYP2C19*2">
+  <data key="d0">star_allele</data>
+  <data key="d1">CYP2C19 *2</data>
+  <data key="d2">CPIC API allele record; version 414</data>
+  <data key="d8">No function</data>
+</node>
+<node id="pgx:variant:rs4244285">
+  <data key="d0">sequence_variant</data>
+  <data key="d1">rs4244285 · c.681G&gt;A</data>
+  <data key="d2">NCBI ClinVar VCV000016897</data>
+  <data key="d9">https://www.ncbi.nlm.nih.gov/clinvar/VCV000016897/</data>
+  <data key="d10">Likely benign; other</data>
+  <data key="d11">2018/08/07 00:00</data>
+  <data key="d12">Molecular identity cross-reference only; ClinVar germline classification concerns a not-specified disease trait, not CYP2C19 drug-metabolizer function.</data>
+</node>
+<node id="pgx:drug:clopidogrel">
+  <data key="d0">drug</data>
+  <data key="d1">Clopidogrel</data>
+  <data key="d2">CPIC API drug record; RxNorm:32968</data>
+</node>
+<node id="pgx:guideline:PA166251443">
+  <data key="d0">clinical_guideline</data>
+  <data key="d1">CYP2C19 and Clopidogrel</data>
+  <data key="d2">CPIC guideline PA166251443</data>
+  <data key="d9">https://www.clinpgx.org/guideline/PA166251443</data>
+  <data key="d13">72</data>
+</node>
+<node id="pgx:recommendation:8609169">
+  <data key="d0">guideline_recommendation</data>
+  <data key="d1">Intermediate Metabolizer · Strong</data>
+  <data key="d2">CPIC recommendation record 8609169</data>
+  <data key="d14">Avoid standard dose (75 mg) clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.</data>
+  <data key="d15">CVI ACS PCI </data>
+  <data key="d16">For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication.</data>
+  <data key="d17">Reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events</data>
+</node>
+<node id="pgx:recommendation:8609171">
+  <data key="d0">guideline_recommendation</data>
+  <data key="d1">Poor Metabolizer · Strong</data>
+  <data key="d2">CPIC recommendation record 8609171</data>
+  <data key="d14">Avoid clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.</data>
+  <data key="d15">CVI ACS PCI </data>
+  <data key="d16">For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication.</data>
+  <data key="d17">Significantly reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events</data>
+</node>
+<edge source="plant:curcuma_longa" target="compound:curcumin" id="0">
+  <data key="d18">stated_in_taxon</data>
+  <data key="d19">Wikidata P703 (found in taxon) Q312266 → Q42562; referenced community-maintained claim. Occurrence is not efficacy.</data>
+  <data key="d20">Wikidata Q312266; live SPARQL check 2026-11-05</data>
+</edge>
+<edge source="plant:curcuma_longa" target="use:VELAYUDHAN2012-T1-COUGH-COLD" id="0">
+  <data key="d18">reported_use_in_secondary_source</data>
+  <data key="d19">Literature report only; underlying source and locality are described with limits in data/processed/ethnobotanical_claims.json. Not efficacy.</data>
+  <data key="d20">https://nopr.niscpr.res.in/bitstream/123456789/14954/1/IJTK%2011(4)%20607-614.pdf</data>
+</edge>
+<edge source="compound:curcumin" target="target:PTGS2" id="0">
+  <data key="d18">model_score_only</data>
+  <data key="d19">In-silico activity-band score; exact training structure overlap; not a measured compound-target claim.</data>
+  <data key="d20">KAPPA ML; retrospective</data>
+</edge>
+<edge source="compound:CHEMBL525247" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 2234806; IC50 0.02 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">2234806</data>
+</edge>
+<edge source="compound:CHEMBL501208" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 2234804; IC50 0.02 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">2234804</data>
+</edge>
+<edge source="compound:CHEMBL499069" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 2234769; IC50 0.02 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">2234769</data>
+</edge>
+<edge source="compound:CHEMBL502555" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 2234820; IC50 0.06998 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">2234820</data>
+</edge>
+<edge source="compound:CHEMBL143776" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 61096; IC50 0.08 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">61096</data>
+</edge>
+<edge source="compound:CHEMBL500936" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 2234825; IC50 0.08995 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">2234825</data>
+</edge>
+<edge source="compound:CHEMBL524543" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 2234819; IC50 0.08995 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">2234819</data>
+</edge>
+<edge source="compound:CHEMBL256250" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 29232363; IC50 0.09 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">29232363</data>
+</edge>
+<edge source="compound:CHEMBL140167" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 36218; IC50 0.12 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">36218</data>
+</edge>
+<edge source="compound:CHEMBL499349" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 2234779; IC50 0.14 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">2234779</data>
+</edge>
+<edge source="compound:CHEMBL6" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 25553879; IC50 0.14 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">25553879</data>
+</edge>
+<edge source="compound:CHEMBL525021" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 2234799; IC50 0.1698 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">2234799</data>
+</edge>
+<edge source="compound:CHEMBL500943" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 2234817; IC50 0.1799 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">2234817</data>
+</edge>
+<edge source="compound:CHEMBL4582020" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 27123449; IC50 0.188 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">27123449</data>
+</edge>
+<edge source="compound:CHEMBL1958349" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 8056065; IC50 0.2 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">8056065</data>
+</edge>
+<edge source="compound:CHEMBL551829" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 2718037; IC50 0.25 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">2718037</data>
+</edge>
+<edge source="compound:CHEMBL525250" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 2234805; IC50 0.2799 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">2234805</data>
+</edge>
+<edge source="compound:CHEMBL551148" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 2718031; IC50 0.28 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">2718031</data>
+</edge>
+<edge source="compound:CHEMBL271173" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 2097571; IC50 0.3 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">2097571</data>
+</edge>
+<edge source="compound:CHEMBL423296" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 634266; IC50 0.3 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">634266</data>
+</edge>
+<edge source="compound:CHEMBL502285" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 2234809; IC50 0.3597 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">2234809</data>
+</edge>
+<edge source="compound:CHEMBL502554" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 2234821; IC50 0.3698 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">2234821</data>
+</edge>
+<edge source="compound:CHEMBL270293" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 2097586; IC50 0.4 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">2097586</data>
+</edge>
+<edge source="compound:CHEMBL186632" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 1453107; IC50 0.44 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">1453107</data>
+</edge>
+<edge source="compound:CHEMBL282093" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 2428772; IC50 0.45 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">2428772</data>
+</edge>
+<edge source="compound:CHEMBL108201" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 520256; IC50 0.5 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">520256</data>
+</edge>
+<edge source="compound:CHEMBL561891" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 2718002; IC50 0.5 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">2718002</data>
+</edge>
+<edge source="compound:CHEMBL118" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 2234795; IC50 0.52 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">2234795</data>
+</edge>
+<edge source="compound:CHEMBL500674" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 2234816; IC50 0.5395 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">2234816</data>
+</edge>
+<edge source="compound:CHEMBL499070" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 2234824; IC50 0.5998 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">2234824</data>
+</edge>
+<edge source="compound:CHEMBL500675" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 2234814; IC50 0.7998 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">2234814</data>
+</edge>
+<edge source="compound:CHEMBL28155" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 651086; IC50 1.0 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">651086</data>
+</edge>
+<edge source="compound:CHEMBL5089355" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 24355183; IC50 1.0 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">24355183</data>
+</edge>
+<edge source="compound:CHEMBL122" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 553676; IC50 1.0 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">553676</data>
+</edge>
+<edge source="compound:CHEMBL7162" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 573002; IC50 1.0 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">573002</data>
+</edge>
+<edge source="compound:CHEMBL432945" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 644186; IC50 1.0 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">644186</data>
+</edge>
+<edge source="compound:CHEMBL5200454" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 24868269; IC50 1.0 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">24868269</data>
+</edge>
+<edge source="compound:CHEMBL313387" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 636701; IC50 1.0 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">636701</data>
+</edge>
+<edge source="compound:CHEMBL88717" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 651321; IC50 1.0 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">651321</data>
+</edge>
+<edge source="compound:CHEMBL330314" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 659708; IC50 1.0 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">659708</data>
+</edge>
+<edge source="compound:CHEMBL327384" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 658415; IC50 1.0 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">658415</data>
+</edge>
+<edge source="compound:CHEMBL92154" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 85227; IC50 1.1 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">85227</data>
+</edge>
+<edge source="compound:CHEMBL4851853" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 23153745; IC50 1.1 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">23153745</data>
+</edge>
+<edge source="compound:CHEMBL272433" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 2097582; IC50 1.2 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">2097582</data>
+</edge>
+<edge source="compound:CHEMBL91118" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 73210; IC50 1.2 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">73210</data>
+</edge>
+<edge source="compound:CHEMBL270078" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 2097584; IC50 1.2 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">2097584</data>
+</edge>
+<edge source="compound:CHEMBL93372" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 775914; IC50 1.26 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">775914</data>
+</edge>
+<edge source="compound:CHEMBL86363" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 123432; IC50 1.288 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">123432</data>
+</edge>
+<edge source="compound:CHEMBL1034" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 25650361; IC50 1.3 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">25650361</data>
+</edge>
+<edge source="compound:CHEMBL3314084" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 15048810; IC50 1.3 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">15048810</data>
+</edge>
+<edge source="compound:CHEMBL549393" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 2718011; IC50 1.3 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">2718011</data>
+</edge>
+<edge source="compound:CHEMBL527107" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 2234807; IC50 1.409 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">2234807</data>
+</edge>
+<edge source="compound:CHEMBL502556" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 2234818; IC50 1.459 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">2234818</data>
+</edge>
+<edge source="compound:CHEMBL92102" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 637984; IC50 1.5 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">637984</data>
+</edge>
+<edge source="compound:CHEMBL312822" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 664794; IC50 1.5 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">664794</data>
+</edge>
+<edge source="compound:CHEMBL93024" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 780368; IC50 1.68 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">780368</data>
+</edge>
+<edge source="compound:CHEMBL29766" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 1216476; IC50 1.7 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">1216476</data>
+</edge>
+<edge source="compound:CHEMBL5208551" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 24868262; IC50 1.7 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">24868262</data>
+</edge>
+<edge source="compound:CHEMBL5592921" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 25970490; IC50 1.77 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">25970490</data>
+</edge>
+<edge source="compound:CHEMBL214101" target="target:PTGS2" id="0">
+  <data key="d18">measured_activity</data>
+  <data key="d19">ChEMBL activity 1760988; IC50 1.8 nM</data>
+  <data key="d20">ChEMBL</data>
+  <data key="d21">1760988</data>
+</edge>
+<edge source="pgx:gene:CYP2C19" target="pgx:variant:rs4244285" id="0">
+  <data key="d18">variant_in_gene</data>
+  <data key="d19">Molecular identity cross-reference only. The record identifies NM_000769.4(CYP2C19):c.681G&gt;A and lists dbSNP rs4244285 and CYP2C19*2 aliases. Its germline classification is 'Likely benign; other' (last evaluated 2018-08-07) for traits recorded as 'not specified' / 'not provided'; that is a Mendelian disease-association classification, not a drug-metabolizer function call. It is therefore neither a response classification nor a contradiction of CPIC's 'no function' allele assignment. Drug recommendations are sourced separately from CPIC and remain phenotype- and indication-conditioned.</data>
+  <data key="d20">https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=clinvar&amp;id=16897&amp;retmode=json</data>
+</edge>
+<edge source="pgx:gene:CYP2C19" target="pgx:allele:CYP2C19*2" id="0">
+  <data key="d18">curated_star_allele_function</data>
+  <data key="d19">CPIC assigns *2 no function; an allele alone is not a diplotype/phenotype.</data>
+  <data key="d20">CPIC API allele record; citations 8195181,22027650</data>
+</edge>
+<edge source="pgx:gene:CYP2C19" target="pgx:drug:clopidogrel" id="0">
+  <data key="d18">curated_gene_drug_pair</data>
+  <data key="d19">CPIC level A; ClinPGx level 1A; pair 110091; citation PMID 21716271,23698643,35034351</data>
+  <data key="d20">CPIC API</data>
+</edge>
+<edge source="pgx:gene:CYP2C19" target="pgx:recommendation:8609169" id="0">
+  <data key="d18">phenotype_conditioned_association</data>
+  <data key="d19">CYP2C19 Intermediate Metabolizer; context CVI ACS PCI ; not a patient-specific call.</data>
+  <data key="d20">CPIC guideline recommendation</data>
+</edge>
+<edge source="pgx:gene:CYP2C19" target="pgx:recommendation:8609171" id="0">
+  <data key="d18">phenotype_conditioned_association</data>
+  <data key="d19">CYP2C19 Poor Metabolizer; context CVI ACS PCI ; not a patient-specific call.</data>
+  <data key="d20">CPIC guideline recommendation</data>
+</edge>
+<edge source="pgx:variant:rs4244285" target="pgx:allele:CYP2C19*2" id="0">
+  <data key="d18">listed_as_star_allele_alias</data>
+  <data key="d19">ClinVar variant aliases include CYP2C19*2; this is nomenclature/identity cross-reference, not a response classification.</data>
+  <data key="d20">NCBI ClinVar VCV000016897</data>
+</edge>
+<edge source="pgx:drug:clopidogrel" target="pgx:guideline:PA166251443" id="0">
+  <data key="d18">covered_by_guideline</data>
+  <data key="d19">Published CYP2C19–clopidogrel pharmacogenomic guideline; not linked to curcumin/PTGS2.</data>
+  <data key="d20">CPIC API</data>
+</edge>
+<edge source="pgx:guideline:PA166251443" target="pgx:recommendation:8609169" id="0">
+  <data key="d18">contains_guideline_recommendation</data>
+  <data key="d19">Avoid standard dose (75 mg) clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.</data>
+  <data key="d20">CPIC API; https://www.clinpgx.org/guideline/PA166251443</data>
+</edge>
+<edge source="pgx:guideline:PA166251443" target="pgx:recommendation:8609171" id="0">
+  <data key="d18">contains_guideline_recommendation</data>
+  <data key="d19">Avoid clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.</data>
+  <data key="d20">CPIC API; https://www.clinpgx.org/guideline/PA166251443</data>
+</edge>
+</graph></graphml>

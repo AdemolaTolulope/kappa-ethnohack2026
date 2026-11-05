@@ -1,0 +1,37 @@
+{
+  "raw_records": 7482,
+  "missing_counts": {
+    "standard_value": 19,
+    "canonical_smiles": 1,
+    "standard_relation": 19,
+    "standard_units": 0,
+    "assay_type": 0,
+    "target_organism": 0
+  },
+  "missing_fraction": {
+    "standard_value": 0.002539,
+    "canonical_smiles": 0.000134,
+    "standard_relation": 0.002539,
+    "standard_units": 0.0,
+    "assay_type": 0.0,
+    "target_organism": 0.0
+  },
+  "sequential_exclusion_counts": {
+    "missing_or_non_numeric_value": 19,
+    "nonpositive_or_nonfinite_value": 7,
+    "non_exact_relation": 1070,
+    "wrong_units": 0,
+    "not_single_protein_assay": 90,
+    "nonhuman_target": 0,
+    "duplicate_flag": 1003,
+    "validity_flag": 257,
+    "weak_intermediate_band": 1374,
+    "invalid_structure": 1
+  },
+  "valid_labelled_measurements_before_structure_dedup": 3661,
+  "duplicate_structure_records_removed": 497,
+  "curated_unique_structures": 3164,
+  "active_unique": 2505,
+  "inactive_unique": 659,
+  "note": "Missing-field counts overlap; sequential exclusion counts are ordered and non-overlapping. IC50 grey zone omitted, not labelled inactive."
+}

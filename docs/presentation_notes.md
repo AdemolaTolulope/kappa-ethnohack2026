@@ -1,0 +1,10 @@
+# Pitch deck notes
+
+`presentation/KAPPA_pitch_deck.pptx` has exactly 10 slides and was regenerated from `scripts/build_deck.py` on 2026-11-05 using `results/figures/` created by `scripts/make_figures.py`. Metrics match the refreshed report: RF test ROC-AUC 0.782, PR-AUC 0.940, balanced accuracy 0.637, with test active prevalence 82.62%. The deck now distinguishes the secondary ethnobotanical report and botanical occurrence, depicts a separate CYP2C19–clopidogrel PGx example, removes the superseded equal-weight composite-score graphic, and explains that the curcumin exact-training match is retrospective. Hyperparameter sensitivity is training-only scaffold CV. Document-/temporal-held-out analyses are described as internal ChEMBL stress tests, not external validation.
+
+Recheck slide text and figures after any pipeline rerun. The live demo and narration are drafts; public repository, deployment URL, pitch recording, verified team details and event eligibility remain pending. `submission/pitch_script.md` is the extended spoken script; `submission/video_narration.md` is a shorter video draft, both below the event's 10-minute maximum.
+
+## 2026-11-05 refresh
+- Rebuilt from `scripts/build_deck.py` after the ClinVar wording correction: slide 7 now states that the cached ClinVar germline label ("Likely benign; other") covers a not-specified disease trait and is not a drug-metabolizer function call, so it neither supplies nor contradicts a CPIC response assignment.
+- Programmatic layout check on the rebuilt deck: 10 slides, no shape outside the slide boundary, no material text-box collisions, footer and page counters present on all slides. No pixel-level rendering was possible in this environment (no LibreOffice/PDF converter installed), so a human visual pass before submission is still required.
+- Live interface screenshots for the same date are in `results/smoke/` (overview, plant, compounds, genomics, ML, graph, graph_pgx, prioritisation_run, methods, prediction, overview_820).

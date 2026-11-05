@@ -1,0 +1,27 @@
+{
+  "retrieved": "2026-11-05",
+  "query": "SELECT ?compound ?compoundLabel WHERE { ?compound wdt:P703 wd:Q42562. ?compound rdfs:label \"curcumin\"@en. SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }",
+  "results": {
+    "head": {
+      "vars": [
+        "compound",
+        "compoundLabel"
+      ]
+    },
+    "results": {
+      "bindings": [
+        {
+          "compound": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q312266"
+          },
+          "compoundLabel": {
+            "xml:lang": "en",
+            "type": "literal",
+            "value": "curcumin"
+          }
+        }
+      ]
+    }
+  }
+}
