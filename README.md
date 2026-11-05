@@ -49,6 +49,20 @@ uvicorn backend.main:app --host 0.0.0.0 --port 8000
 
 Open http://localhost:8000. The app includes overview, plant-level evidence, compounds/assays, SMILES prediction, genomic context, evaluation, disconnected plant/assay and PGx graph views, evidence-aware triage, methods and provenance. Export the curated table with the in-app CSV action. No credentials are required.
 
+## Documentation map
+
+| Question | Document |
+|---|---|
+| What problem, and why does KAPPA deserve to exist? | [`docs/innovation_statement.md`](docs/innovation_statement.md) |
+| How does it compare with LOTUS, IMPPAT, NPASS, ChEMBL, NP-KG, Open Targets? | [`docs/competitive_landscape.md`](docs/competitive_landscape.md) |
+| What is actually implemented, and what is a placeholder? | [`docs/technical_assessment.md`](docs/technical_assessment.md) |
+| What was audited, and what did the audit find? | [`docs/scientific_integrity_audit.md`](docs/scientific_integrity_audit.md) |
+| How were the numbers produced? | [`docs/scientific_methodology.md`](docs/scientific_methodology.md), [`docs/validation_report.md`](docs/validation_report.md) |
+| What may and may not be claimed? | [`docs/model_card.md`](docs/model_card.md), [`docs/limitations.md`](docs/limitations.md), [`docs/responsible_ai.md`](docs/responsible_ai.md) |
+| Where does each byte come from, and under what licence? | [`docs/provenance_register.md`](docs/provenance_register.md), [`docs/data_provenance.md`](docs/data_provenance.md) |
+| Is it competition-ready? | [`docs/competition_readiness.md`](docs/competition_readiness.md) |
+| What is left before submission? | [`docs/release_checklist.md`](docs/release_checklist.md), [`docs/github_release_checklist.md`](docs/github_release_checklist.md) |
+
 ## Project map
 
 - `src/data_pipeline.py` — paginated ChEMBL acquisition, explicit filters and data audit.
