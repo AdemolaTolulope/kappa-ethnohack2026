@@ -27,7 +27,7 @@ for i,(a,b) in enumerate([('PLANT','Curcuma longa'),('MOLECULE','Curcumin'),('BI
  y=2.0+i*.8;text(s,9.0,y,1.2,.22,a,9,MINT,True);text(s,9.0,y+.22,2.9,.35,b,15,WHITE,True)
 text(s,.85,6.25,7,.3,'ETHNOHACK 2026 · NATURAL PRODUCTS FOR DRUG DISCOVERY',12,GOLD,True)
 #2
-s=base(2,'The challenge is not a shortage of data. It is disconnected evidence.')
+s=base(2,'The challenge is disconnected evidence.')
 text(s,.8,1.65,5.2,.8,'Botanical records, compound structures, target assays and human genetics live in different systems—with different identifiers, evidence standards and reuse rules.',18,WHITE)
 for i,(a,b) in enumerate([('Occurrence','Where botanical evidence appears'),('Chemistry','What structure the identifier means'),('Bioactivity','Which assay measured what'),('Pharmacogenomics','What variants may or may not support')]):
  x=6.45+(i%2)*3.0;y=1.65+(i//2)*1.55;shape(s,x,y,2.7,1.18,PANEL,True);text(s,x+.18,y+.14,2.3,.25,a,13,MINT,True);text(s,x+.18,y+.48,2.25,.52,b,11,MUTED)
@@ -73,14 +73,14 @@ shape(s,7.35,1.65,5.0,2.0,PANEL,True);text(s,7.7,1.95,4.3,.35,'CURCUMIN · RETRO
 text(s,7.45,4.15,4.85,1.05,'Applicability cutoff 0.324 is a training-only similarity diagnostic—not a calibrated confidence guarantee. No evidence-axis average.',14,WHITE)
 text(s,7.45,5.65,4.75,.55,'Hyperparameter sensitivity on training CV; time/document stress tests are internal ChEMBL—not external validation.',13,GOLD,True)
 #9
-s=base(9,'A working research workbench—not a screenshot prototype.')
+s=base(9,'A working workbench—not a screenshot.')
 s.shapes.add_picture(str(P/'frontend/screenshot.png') if (P/'frontend/screenshot.png').exists() else str(P/'results/figures/pipeline_workflow.png'), Inches(.7), Inches(1.5), width=Inches(5.9))
 for i,(a,b) in enumerate([('Explore','Measured structures and descriptors'),('Inspect','Activity bands, assays and source IDs'),('Predict','SMILES + similarity + overlap flag'),('Traverse','Typed graph with evidence notes'),('Export','Curated CSV and reproducible metrics')]):
  y=1.55+i*.86;text(s,7.0,y,1.25,.28,a,12,MINT,True);text(s,8.4,y,3.9,.42,b,13,WHITE)
 text(s,.85,6.15,11,.3,'Live demo: plant context → compound table → model card → graph → methods/provenance.',12,GOLD)
 #10
 s=base(10,'Useful now. Clear about what comes next.')
-shape(s,.75,1.6,5.7,3.9,PANEL,True);text(s,1.05,1.92,4.8,.35,'DELIVERED',15,MINT,True);text(s,1.05,2.55,4.8,2.4,'Live API + UI\n3,164-record data pipeline\nScaffold benchmark + tests\nEvidence graph + docs\n10-slide pitch + submission',16,WHITE)
+shape(s,.75,1.6,5.7,3.9,PANEL,True);text(s,1.05,1.92,4.8,.35,'DELIVERED',15,MINT,True);text(s,1.05,2.55,4.8,2.4,'Working API + UI (local)\n3,164-record data pipeline\nScaffold benchmark + 15 tests\nEvidence graph + docs\n10-slide deck + rendered PDF',16,WHITE)
 shape(s,6.9,1.6,5.7,3.9,PANEL,True);text(s,7.2,1.92,4.8,.35,'NEXT VALIDATION',15,CYAN,True);text(s,7.2,2.55,4.8,2.4,'Primary-source ethnobotanical evidence + permission\nIndependent assay/database evaluation\nClinical PGx update + indication checks\nProbability calibration and domain review\nProspective experimental follow-up',16,WHITE)
 text(s,1.05,6.15,11.0,.35,'KAPPA turns fragmented evidence into a traceable research question—not a therapeutic promise.',17,GOLD,True)
 r.save(P/'presentation/KAPPA_pitch_deck.pptx')
