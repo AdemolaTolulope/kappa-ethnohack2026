@@ -26,3 +26,10 @@ and the screenshots do not substitute for a human visual review before release.
 Duplicated filenames from the first capture pass (`compound_explorer`, `plant_and_knowledge`,
 `genomic_context`, `ml_laboratory`, `evidence_graph`, `methods_and_evidence`) were removed so
 each view has one current screenshot.
+
+## Deck render
+
+`presentation/rendered/` holds the deck render used for layout review
+(`KAPPA_pitch_deck.pdf` plus `slide-01.png` … `slide-10.png`, 90 dpi).
+Four layout defects were found there and fixed in `scripts/build_deck.py`; see
+`docs/presentation_notes.md`.

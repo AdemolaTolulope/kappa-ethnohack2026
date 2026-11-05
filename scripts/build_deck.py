@@ -34,7 +34,7 @@ for i,(a,b) in enumerate([('Occurrence','Where botanical evidence appears'),('Ch
 text(s,.85,5.2,10.5,.58,'A plant occurrence is not a medicinal-use claim. A biochemical activity is not clinical efficacy.',20,GOLD,True)
 text(s,.85,6.0,11,.48,'KAPPA makes those boundaries explicit while creating a reproducible path between datasets.',15,WHITE)
 #3
-s=base(3,'The gap: reproducible hand-offs, not another mega-database.')
+s=base(3,'Reproducible hand-offs, not another mega-database.')
 text(s,.85,1.55,5.3,1.1,'LOTUS, IMPPAT, ChEMBL, Open Targets and NP-KG already provide valuable data and integration capabilities.',18,WHITE)
 text(s,.85,3.0,5.3,1.25,'KAPPA’s bounded contribution: connect a traceable occurrence context to a measured target-specific dataset, a scaffold-aware baseline, an applicability check, and evidence-tiered interpretation.',16,MUTED)
 shape(s,6.65,1.5,5.7,4.45,PANEL,True)
@@ -45,7 +45,7 @@ text(s,.85,5.9,10,.5,'Integration/reproducibility work—not a claim to be the f
 s=base(4,'One pipeline. Provenance at every hand-off.')
 labels=[('ChEMBL','7,482 target IC50 rows'),('Curate','3,164 structures'),('RDKit','7 descriptors + 512 bits'),('Split','Stratified scaffold groups'),('Benchmark','RF + logistic'),('Explore','API + graph + UI')]
 for i,(a,b) in enumerate(labels):
- x=.55+i*2.1;shape(s,x,2.0,1.78,1.52,PANEL,True);text(s,x+.13,2.22,1.5,.3,a,15,MINT,True);text(s,x+.13,2.7,1.48,.57,b,11,WHITE)
+ x=.55+i*2.1;shape(s,x,2.0,1.78,1.52,PANEL,True);text(s,x+.11,2.2,1.58,.3,a,13.5,MINT,True);text(s,x+.13,2.7,1.48,.57,b,11,WHITE)
  if i<5:text(s,x+1.81,2.55,.28,.3,'→',17,CYAN,True)
 text(s,.9,4.3,11.4,.45,'Observed assay records  →  computed molecular features  →  held-out predictions',18,WHITE,True)
 text(s,.9,5.05,11.1,.8,'Wikidata occurrence and one secondary ethnobotanical report are distinct plant-level evidence. A verified CYP2C19–clopidogrel guideline is a disconnected PGx demo; no link to curcumin/PTGS2.',15,MUTED)
@@ -55,7 +55,7 @@ for i,(n,v,sub) in enumerate([('RAW RECORDS','7,482','ChEMBL CHEMBL230 · human 
  x=.75+i*3.05;shape(s,x,1.65,2.75,1.3,PANEL,True);text(s,x+.2,1.85,2.4,.25,n,10,MINT,True);text(s,x+.2,2.1,2.3,.4,v,24,WHITE,True);text(s,x+.2,2.56,2.4,.28,sub,9,MUTED)
 s.shapes.add_picture(str(P/'results/figures/chemical_properties.png'), Inches(.65), Inches(3.3), width=Inches(6.15));shape(s,7.2,3.35,5.2,2.6,PANEL,True);text(s,7.55,3.65,4.45,.35,'STRICT FILTERS',14,MINT,True);text(s,7.55,4.15,4.35,1.35,'Exact standard relation · nM units · single-protein assay · Homo sapiens · no duplicate/validity flags.\n\n1–10 µM grey band omitted—not relabelled inactive.',14,WHITE)
 #6
-s=base(6,'A genuine model benchmark—with a visible imbalance caveat.')
+s=base(6,'A genuine benchmark—with a visible caveat.')
 s.shapes.add_picture(str(P/'results/figures/model_comparison.png'), Inches(.65), Inches(1.45), width=Inches(6.3))
 for i,(a,b) in enumerate([('Random Forest','ROC-AUC 0.782 · PR-AUC 0.940'),('Logistic baseline','ROC-AUC 0.703 · PR-AUC 0.907'),('3-fold scaffold CV','Mean ROC 0.810 · PR 0.935')]):
  y=1.8+i*1.1;shape(s,7.1,y,5.2,.84,PANEL,True);text(s,7.4,y+.1,1.7,.25,a,12,MINT,True);text(s,9.0,y+.1,3,.43,b,13,WHITE,True)
@@ -64,8 +64,8 @@ text(s,7.2,5.4,5.05,.65,'Test prevalence 82.6% (PR baseline); balanced accuracy 
 s=base(7,'A graph that distinguishes identifiers from inference.')
 s.shapes.add_picture(str(P/'results/figures/pharmacogenomics_graph.png'), Inches(.65), Inches(1.55), width=Inches(6.2))
 text(s,6.9,1.8,5.2,.58,'Pharmacogenomic example: verified, contextual, separate.',18,WHITE,True)
-text(s,6.9,2.65,5.0,2.05,'CYP2C19 *2 (ClinVar rs4244285 identity alias) and clopidogrel are tied to CPIC guideline 100411; CPIC level A / ClinPGx 1A. Phenotype- and ACS/PCI-conditioned records only.\n\nNo genotype/patient data; no link to curcumin or PTGS2. ClinVar supplies variant identity only: its “Likely benign; other” label covers a not-specified disease trait, not CYP2C19 drug-metabolizer function.',15,MUTED)
-text(s,6.9,5.25,5.05,.55,'Missing evidence ≠ negative biology.',17,GOLD,True)
+text(s,6.9,2.6,5.0,1.9,'CYP2C19 *2 and clopidogrel are tied to CPIC guideline 100411 (CPIC A / ClinPGx 1A), with phenotype- and ACS/PCI-conditioned records only.\n\nNo patient genotype and no link to curcumin or PTGS2. ClinVar supplies variant identity only: its “Likely benign; other” label covers an unspecified disease trait, not drug-metabolizer function.',14,MUTED)
+text(s,6.9,5.5,5.05,.4,'Missing evidence ≠ negative biology.',16,GOLD,True)
 #8
 s=base(8,'No composite ranking. Keep the prediction in scope.')
 s.shapes.add_picture(str(P/'results/figures/model_sensitivity.png'), Inches(.6), Inches(1.45), width=Inches(6.6))
