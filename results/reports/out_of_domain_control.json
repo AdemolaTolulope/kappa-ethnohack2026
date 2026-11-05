@@ -1,0 +1,86 @@
+{
+  "smiles": "OC[C@H]1O[C@@](CO)(O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@@H](O)[C@@H]1O",
+  "name": "sucrose (out-of-domain control)",
+  "response": {
+    "properties": {
+      "canonical_smiles": "OC[C@H]1O[C@@](CO)(O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@@H](O)[C@@H]1O",
+      "formula": "C12H22O11",
+      "mw": 342.297,
+      "logp": -5.396,
+      "tpsa": 189.53,
+      "hbd": 8,
+      "hba": 11,
+      "rotatable_bonds": 5,
+      "fraction_csp3": 1.0
+    },
+    "probability_active": 0.42629869833212364,
+    "max_training_similarity": 0.19298245614035087,
+    "applicability_threshold": 0.3235867074102369,
+    "in_domain": false,
+    "exact_training_match": false,
+    "nearest_training_examples": [
+      {
+        "chembl_id": "CHEMBL52229",
+        "activity_id": 18318260,
+        "ic50_nM": 81100.0,
+        "label": "inactive",
+        "tanimoto": 0.19298245614035087
+      },
+      {
+        "chembl_id": "CHEMBL3425982",
+        "activity_id": 15246382,
+        "ic50_nM": 13700.0,
+        "label": "inactive",
+        "tanimoto": 0.18461538461538463
+      },
+      {
+        "chembl_id": "CHEMBL50",
+        "activity_id": 1864249,
+        "ic50_nM": 28600.0,
+        "label": "inactive",
+        "tanimoto": 0.17857142857142858
+      }
+    ],
+    "score": {
+      "candidate_priority_score": null,
+      "score_basis": "Uncalibrated model probability only; never a clinical or efficacy score. No composite evidence weights.",
+      "model_prediction": {
+        "probability_active_uncalibrated": 0.42629869833212364,
+        "rankable_within_empirical_domain": false
+      },
+      "applicability_domain": {
+        "max_training_tanimoto": 0.19298245614035087,
+        "threshold": 0.3235867074102369,
+        "status": "outside empirical reference range or unavailable",
+        "interpretation": "Relative similarity diagnostic, not a validated confidence guarantee."
+      },
+      "chemical_identity": {
+        "status": "structure syntax validated only; named identity unconfirmed"
+      },
+      "observed_bioactivity": {
+        "status": "not found in loaded subset; not evidence of inactivity"
+      },
+      "pharmacogenomic_evidence": {
+        "status": "not linked to candidate",
+        "note": "The separate CYP2C19-clopidogrel guideline demo must not be connected to curcumin or PTGS2."
+      },
+      "ethnobotanical_evidence": {
+        "status": "not linked to submitted structure"
+      },
+      "missing_evidence": [
+        "No source-backed chemical identifier match",
+        "No exact-structure measured PTGS2 record found in the cached subset",
+        "No candidate-linked pharmacogenomic association; separate CYP2C19-clopidogrel demo is unrelated",
+        "No plant/use provenance linked to this submitted structure"
+      ],
+      "uncertainty_and_limitations": [
+        "Model probabilities are not calibrated.",
+        "Single-target ChEMBL biochemical endpoint; no clinical response inference.",
+        "Assay heterogeneity and literature selection bias remain.",
+        "No experimental validation performed."
+      ]
+    },
+    "target": "PTGS2 human biochemical assay",
+    "warning": "Model output is an uncalibrated activity-band estimate, not mechanism, therapeutic benefit or patient-specific prediction."
+  }
+}

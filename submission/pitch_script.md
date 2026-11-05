@@ -10,7 +10,7 @@ Natural-product discovery is not short of resources. It is fragmented across bot
 
 ## Slide 3 — The gap
 
-We reviewed established resources including LOTUS, IMPPAT, ChEMBL, Open Targets, the GWAS Catalog and natural-product knowledge-graph work such as NP-KG. These already provide substantial databases and integration. So our contribution is deliberately narrower: an executable, auditable pathway from a traceable occurrence statement through a real target assay dataset to a scaffold-aware benchmark, applicability check and evidence-tiered research output. We are claiming an integration and reproducibility contribution—not the first natural-products AI or knowledge graph.
+We reviewed established resources including LOTUS, IMPPAT, NPASS, ChEMBL, Open Targets, the GWAS Catalog and natural-product knowledge-graph work such as NP-KG, plus a 2026 framework that already links LOTUS occurrence, scaffolds and ChEMBL evidence. Those resources provide the databases and the integration concept. So our contribution is deliberately narrower and testable: an evidence-type contract enforced in code, with an explicit refusal rule — the model's triage value disappears when a molecule leaves the empirically referenced chemical space. We are claiming an implementation-and-reproducibility contribution, not the first natural-products AI or knowledge graph.
 
 ## Slide 4 — How it works
 
@@ -26,11 +26,13 @@ We created seven standard physicochemical descriptors and a 512-bit Morgan radiu
 
 ## Slide 7 — Pharmacogenomics and graph
 
-The graph includes source-typed plant/assay records and a separate verified PGx example. CPIC links CYP2C19–clopidogrel (pair 110091, level A; ClinPGx 1A) and phenotype-conditioned recommendations under guideline 100411. ClinVar VCV000016897 is used only to cross-reference c.681G>A / rs4244285 / *2 nomenclature; its cached summary has no response classification. *2 alone is not a full genotype. The recommendation records are filtered to intermediate/poor metabolizer and the stated ACS/PCI context. No patient genotype or advice is produced, and this evidence is not linked to curcumin or PTGS2.
+The graph includes source-typed plant/assay records and a separate verified PGx example. CPIC links CYP2C19–clopidogrel (pair 110091, level A; ClinPGx 1A) and phenotype-conditioned recommendations under guideline 100411. ClinVar VCV000016897 is used only to cross-reference c.681G>A / rs4244285 / *2 nomenclature; its cached germline label — likely benign, for a not-specified disease trait — is a disease-association statement, not a drug-metaboliser function call, and we say so in the interface. *2 alone is not a full genotype. The recommendation records are filtered to intermediate/poor metabolizer and the stated ACS/PCI context. No patient genotype or advice is produced, and this evidence is not linked to curcumin or PTGS2.
 
 ## Slide 8 — Explanation and prioritisation
 
-For global model behaviour, grouped permutation importance measures ROC-AUC drops on the held-out set; it describes model reliance, not mechanism. A query returns structure properties, nearest measured training examples, similarity and exact training overlap. Curcumin is in the training set, so its output is explicitly retrospective. There is no composite evidence ranking: similarity is a diagnostic only, while identity, ethnobotany, measured activity and PGx remain distinct. The uncalibrated model-only triage value is withheld outside the empirical reference range.
+For global model behaviour, grouped permutation importance measures ROC-AUC drops on the held-out set; it describes model reliance, not mechanism. A query returns structure properties, nearest measured training examples, similarity and exact training overlap. Curcumin is in the training set, so its output is explicitly retrospective. There is no composite evidence ranking: similarity is a diagnostic only, while identity, ethnobotany, measured activity and PGx remain distinct. The uncalibrated model-only triage value is withheld outside the empirical reference range, and we show that on screen with sucrose: maximum similarity 0.193 against a 0.3236 reference, no triage value returned.
+
+We also report what most activity papers leave implicit: the duplicate-structure decision. Thirty-two structures carry both an active and an inactive measurement. Re-running everything with a median rule, and with those conflicts excluded, moves held-out ROC-AUC from 0.782 to 0.774 and 0.825, and balanced accuracy from 0.637 to 0.671 and 0.729. Ranking is moderately stable; the threshold operating point is not, so we do not make claims about how many compounds we would triage correctly.
 
 ## Slide 9 — Demonstration
 

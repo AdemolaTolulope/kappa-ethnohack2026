@@ -41,5 +41,28 @@ hp=metrics['hyperparameter_sensitivity_training_scaffold_cv']; labels=[f"leaf={x
 fig,ax=plt.subplots(figsize=(8,4));x=np.arange(len(hp));w=.24
 for j,(key,label,color) in enumerate([('mean_roc_auc','ROC-AUC','#53c99a'),('mean_pr_auc','PR-AUC','#76c5d7'),('mean_balanced_accuracy','Balanced accuracy','#d6bd77')]):ax.bar(x+(j-1)*w,[z[key] for z in hp],width=w,label=label,color=color)
 ax.set_xticks(x,labels,fontsize=8);ax.set_ylim(0,1);ax.set_ylabel('Mean across 3 training-only scaffold folds');ax.set_title('Random-forest hyperparameter sensitivity · not test-set tuning');ax.legend(fontsize=8);ax.spines[['top','right']].set_visible(False);fig.tight_layout();fig.savefig(out/'model_sensitivity.png',dpi=160);plt.close(fig)
+# Duplicate-structure aggregation sensitivity (separate report; never replaces the primary analysis).
+dup_path=Path('results/reports/duplicate_sensitivity.json')
+if dup_path.exists():
+    dup=json.loads(dup_path.read_text())['strategies']
+    order=['lowest_ic50','median_ic50','exclude_conflicting']
+    pretty={'lowest_ic50':'Lowest IC50\n(primary)','median_ic50':'Median IC50','exclude_conflicting':'Conflicts\nexcluded'}
+    fig,axs=plt.subplots(1,2,figsize=(10,3.9))
+    x=np.arange(len(order));w=.38
+    hold=[dup[k]['holdout_metrics']['roc_auc'] for k in order]
+    cv=[dup[k]['three_fold_scaffold_cv']['roc_auc']['mean'] for k in order]
+    cv_sd=[dup[k]['three_fold_scaffold_cv']['roc_auc']['sd'] for k in order]
+    axs[0].bar(x-w/2,hold,w,label='Scaffold holdout',color='#53c99a')
+    axs[0].bar(x+w/2,cv,w,yerr=cv_sd,capsize=3,label='3-fold scaffold CV',color='#76c5d7')
+    axs[0].axhline(.5,ls='--',c='#777',lw=1);axs[0].set_xticks(x,[pretty[k] for k in order],fontsize=8)
+    axs[0].set_ylim(0,1);axs[0].set_ylabel('ROC-AUC');axs[0].set_title('Aggregation rule: ranking metrics',fontsize=10);axs[0].legend(fontsize=8)
+    bal=[dup[k]['holdout_metrics']['balanced_accuracy_at_0_5'] for k in order]
+    mcc=[dup[k]['holdout_metrics']['matthews_corrcoef_at_0_5'] for k in order]
+    axs[1].bar(x-w/2,bal,w,label='Balanced accuracy',color='#d6bd77')
+    axs[1].bar(x+w/2,mcc,w,label='MCC',color='#b593dd')
+    axs[1].set_xticks(x,[pretty[k] for k in order],fontsize=8);axs[1].set_ylim(0,1)
+    axs[1].set_title('Same runs: threshold-0.5 operating point',fontsize=10);axs[1].legend(fontsize=8)
+    for a in axs:a.spines[['top','right']].set_visible(False)
+    fig.tight_layout();fig.savefig(out/'duplicate_sensitivity.png',dpi=160);plt.close(fig)
 # Remove the superseded composite-weight plot if this script is rerun.
 (out/'ranking_sensitivity.png').unlink(missing_ok=True)

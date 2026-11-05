@@ -26,13 +26,19 @@ Scores remain uncalibrated. Similarity is a relative applicability diagnostic, n
 - Logistic-regression baseline: ROC-AUC **0.703**, PR-AUC **0.907**, balanced accuracy **0.624**.
 - Test active prevalence is **82.62%**, so this is also the approximate no-skill PR-AUC baseline; PR-AUC is not interpreted without that context.
 - Internal same-source publication/scaffold-disjoint test ROC-AUC: **0.724**. Temporal/scaffold-disjoint test ROC-AUC: **0.602**. These are internal ChEMBL stress tests, not external validation.
-- No independent database or experimental/clinical validation has been performed. Read [`docs/validation_report.md`](../docs/validation_report.md) and [`docs/limitations.md`](../docs/limitations.md).
+- **Duplicate-structure sensitivity (new):** of 4,327 unique eligible structures, 371 carry more than one eligible measurement and 32 carry both an active and an inactive measurement. Repeating the identical protocol with a median rule and with conflicting structures excluded gives holdout ROC-AUC **0.774** / **0.825** (primary 0.782) and balanced accuracy **0.671** / **0.729** (primary 0.637). Ranking is moderately stable; the threshold-0.5 operating point is not, so no claim is made about triage accuracy at a fixed cutoff.
+- **Refusal rule demonstrated:** sucrose has a maximum training similarity of **0.193**, below the **0.3236** empirical reference, and the API returns `candidate_priority_score: null` with "outside empirical reference range" in the UI.
+- No independent database or experimental/clinical validation has been performed. Read [`docs/validation_report.md`](../docs/validation_report.md), [`docs/scientific_integrity_audit.md`](../docs/scientific_integrity_audit.md) and [`docs/limitations.md`](../docs/limitations.md).
 
 ## Evidence demonstrations
 
 - **Occurrence:** Wikidata’s P703 statement links curcumin Q312266 to *Curcuma longa* Q42562; this is botanical occurrence only.
 - **Ethnobotanical context:** a 2012 secondary review reports one turmeric cough/cold practice and cites a Malayalam source not independently accessed. The entry does not identify a specific community/locality. It is not evidence of efficacy or safety, and is not linked to curcumin/PTGS2.
-- **Pharmacogenomics:** independently, a cached CPIC CYP2C19–clopidogrel guideline example shows CPIC level A / ClinPGx 1A, with CPIC intermediate/poor-metabolizer recommendations filtered to the stated ACS/PCI context. ClinVar VCV000016897 is used only for molecular identity (c.681G>A / rs4244285 / *2); its cached ESummary does not supply a response classification. This component is disconnected from the phytochemical model and is not patient advice.
+- **Pharmacogenomics:** independently, a cached CPIC CYP2C19–clopidogrel guideline example shows CPIC level A / ClinPGx 1A, with CPIC intermediate/poor-metabolizer recommendations filtered to the stated ACS/PCI context. ClinVar VCV000016897 is used only for molecular identity (c.681G>A / rs4244285 / *2); its cached germline label — "Likely benign; other", for a not-specified trait — is a disease-association statement, not a drug-metaboliser function call. This component is disconnected from the phytochemical model and is not patient advice.
+
+## How this differs from existing resources
+
+LOTUS, IMPPAT, NPASS, ChEMBL, PubChem, Open Targets, the GWAS Catalog and NP-KG already provide the databases and much of the integration; a 2026 compound-centric framework already links plant occurrence, taxonomy, scaffolds and ChEMBL evidence. KAPPA does not claim to be the first integrated natural-product platform. Its contribution is narrower and checkable: an evidence-type contract enforced in code and UI, with an explicit refusal rule, reproducible benchmarks, and a pharmacogenomic component that stays disconnected and non-prescriptive. The full comparison matrix, with per-resource limits and overlap, is in [`docs/competitive_landscape.md`](../docs/competitive_landscape.md).
 
 ## Technologies
 Python, RDKit, scikit-learn, Pandas, NumPy, FastAPI, NetworkX, Matplotlib, JavaScript/HTML/CSS, pytest, ChEMBL REST, CPIC API and NCBI ClinVar E-utilities.
@@ -48,6 +54,6 @@ KAPPA demonstrates a reproducible, bounded research workflow—not a discovery c
 - **Members and actual contributions:** [Add confirmed names and contribution statements]
 - **No contributor identity or contribution is claimed in this draft.**
 
-Local drafts are prepared, but the public repository, deployment URL, pitch video, confirmed team/eligibility and Devpost submission are not yet recorded. The posted EthnoHack event information lists a 2–5 person team, a public source repository, a pitch video of at most 10 minutes and a slide deck of at most 10 slides; the event landing-page and rules eligibility wording should be confirmed with organizers. See [`docs/phase11_audit.md`](../docs/phase11_audit.md).
+Local drafts are prepared, the pipeline and interface are verified locally (17 tests, clean-room bundle reproduction, headless-browser pass), but the public repository, deployment URL, pitch video, confirmed team/eligibility and Devpost submission are not yet recorded. The posted EthnoHack event information lists a 2–5 person team, a public source repository, a pitch video of at most 10 minutes and a slide deck of at most 10 slides; the event landing-page and rules eligibility wording should be confirmed with organizers. See [`docs/phase11_audit.md`](../docs/phase11_audit.md).
 
 **Repository / demo URL:** [Add only after authorization and deployment]

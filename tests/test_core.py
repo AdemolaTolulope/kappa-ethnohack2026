@@ -5,6 +5,7 @@ from src.prioritisation.rank import score_candidate
 from src.knowledge_graph.graph import build_graph, graph_payload
 from src.data_pipeline import curate, audit_dataset
 from src.ml.train import stratified_group_holdout
+from src.ml.duplicate_sensitivity import aggregate, eligible_measurements, label_from_ic50
 import numpy as np
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -67,3 +68,36 @@ def test_pipeline_uses_declared_activity_bands_and_records_audit():
     assert len(df)==1 and int(df.iloc[0].label)==1
     assert audit['sequential_exclusion_counts']['weak_intermediate_band']==1
     assert audit['curated_unique_structures']==1
+
+
+def _dup_rows():
+    base={'standard_type':'IC50','standard_relation':'=','standard_units':'nM','assay_type':'B','target_organism':'Homo sapiens',
+          'potential_duplicate':0,'data_validity_comment':None,'molecule_chembl_id':'CHEMBL_TEST','document_chembl_id':'DOC','document_year':2020}
+    # CCO: active 100 nM plus inactive 20,000 nM -> conflicting structure.
+    # CCCl: active 200 nM and 800 nM -> concordant active.
+    # c1ccccc1: single inactive 50,000 nM.
+    # CCCCCC: single grey-band 5,000 nM -> never labelled.
+    return [
+        {**base,'activity_id':1,'canonical_smiles':'CCO','standard_value':'100'},
+        {**base,'activity_id':2,'canonical_smiles':'CCO','standard_value':'20000'},
+        {**base,'activity_id':3,'canonical_smiles':'CCCl','standard_value':'200'},
+        {**base,'activity_id':4,'canonical_smiles':'CCCl','standard_value':'800'},
+        {**base,'activity_id':5,'canonical_smiles':'c1ccccc1','standard_value':'50000'},
+        {**base,'activity_id':6,'canonical_smiles':'CCCCCC','standard_value':'5000'},
+    ]
+
+def test_duplicate_aggregation_rules_are_explicit_and_preserve_primary():
+    df=eligible_measurements(_dup_rows())
+    assert label_from_ic50(5000) is None  # grey band never relabelled
+    lowest=aggregate(df,'lowest_ic50').set_index('canonical_smiles')
+    median=aggregate(df,'median_ic50').set_index('canonical_smiles')
+    excl=aggregate(df,'exclude_conflicting').set_index('canonical_smiles')
+    # Grey-band-only structure is excluded from every rule.
+    for frame in (lowest,median,excl):
+        assert 'CCCCCC' not in frame.index
+    # Lowest rule labels the conflicting structure active; median rule also active (median of 100 and 20000 = 10050 -> inactive).
+    assert lowest.loc['CCO','label']==1
+    assert median.loc['CCO','label']==0
+    # Exclusion rule drops the conflicting structure entirely.
+    assert 'CCO' not in excl.index
+    assert excl.loc['CCCl','label']==1 and excl.loc['c1ccccc1','label']==0

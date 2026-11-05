@@ -42,6 +42,24 @@ Probabilities are **uncalibrated**. On the scaffold holdout, RF Brier score is 0
 
 The application estimates an applicability reference threshold of **0.3236 max Morgan radius-2 Tanimoto**, the fifth percentile of training-only scaffold out-of-fold molecules’ maximum similarity to their fold training set. This is a relative similarity diagnostic, **not** a calibrated confidence guarantee or scientifically validated domain boundary. 1.85% of the held-out test structures fall below it. Similarity is not a positive scoring component; the UI withholds the model-only triage value outside this empirical range. Exact training-structure matches are flagged as retrospective.
 
+## Duplicate-structure aggregation sensitivity (new, 2026-11-05)
+
+Command: `python -m src.ml.duplicate_sensitivity` → `results/reports/duplicate_sensitivity.json`,
+`results/figures/duplicate_sensitivity.png`. The primary analysis (lowest IC50 per canonical structure) is
+unchanged and reproduces exactly (`reproduced_within_1e-9: true`).
+
+| Rule | Structures | Holdout ROC-AUC | Holdout PR-AUC | Balanced accuracy | MCC | 3-fold CV ROC-AUC |
+|---|---:|---:|---:|---:|---:|---:|
+| Lowest IC50 (primary) | 3,164 | 0.7819 | 0.9396 | 0.6372 | 0.3449 | 0.7931 ± 0.0387 |
+| Median IC50 | 3,084 | 0.7744 | 0.9232 | 0.6707 | 0.3996 | 0.7963 ± 0.0579 |
+| Conflicting structures excluded | 3,068 | 0.8250 | 0.9267 | 0.7286 | 0.4636 | 0.8052 ± 0.0149 |
+
+Of 4,327 unique eligible structures, 371 carry more than one eligible measurement and 32 carry both an active
+and an inactive measurement. Ranking metrics are moderately stable across rules; the threshold-0.5 operating
+point is not (balanced accuracy 0.637–0.729, MCC 0.345–0.464). The primary rule is retained; the exclusion rule
+is not adopted because it removes ambiguous structures and shrinks the test set to 464. Details and caveats in
+[`scientific_integrity_audit.md`](scientific_integrity_audit.md).
+
 ## Internal domain-shift stress tests (not external validation)
 
 | Evaluation | Test / train sizes | Scaffold overlap | RF ROC-AUC | PR-AUC | Balanced accuracy | Interpretation |
@@ -56,12 +74,12 @@ Grouped permutation importance is descriptive global model reliance, not mechani
 ## Tests and end-to-end pilot
 
 - `python -m src.run_pipeline` completed on the cached ChEMBL acquisition and regenerated the curated dataset, model artifact (including empirical applicability threshold), metrics, figures, and a GraphML knowledge graph.
-- `pytest -q`: **15 passed** (2026-11-05). Tests include label/filter behavior; scaffold group separation; model-only score gating; evidence graph provenance; edge topology versus provenance-key separation; CPIC phenotype/context filtering; ClinVar identity cross-reference and its germline-label semantics; disconnected PGx and phytochemical graph scopes; API and invalid-SMILES checks.
+- `pytest -q`: **17 passed** (2026-11-05). Two tests added this cycle cover the duplicate-aggregation rules and the out-of-domain withholding behaviour. Tests include label/filter behavior; scaffold group separation; model-only score gating; evidence graph provenance; edge topology versus provenance-key separation; CPIC phenotype/context filtering; ClinVar identity cross-reference and its germline-label semantics; disconnected PGx and phytochemical graph scopes; API and invalid-SMILES checks.
 - FastAPI exposes overview, compound search/export, prediction, graph scopes, evidence/metrics, CPIC demonstration, and target identity routes. The UI keeps occurrence, ethnobotanical report, measured activity, predictions, chemical identity, and PGx separate.
 - Live-browser smoke test (headless Chromium, served by uvicorn on 2026-11-05): all eight views rendered; prediction, out-of-domain prediction, candidate prioritisation, graph scope switching, and the PGx panel returned data; console errors **0**, failed requests **0**; the evidence graph rendered 40 nodes/38 edges (pilot scope) and 7 nodes/9 edges (PGx scope); layout has no horizontal overflow at 1500 px or 820 px. Screenshots are stored in `results/smoke/`. A screenshot record is not an independent scientific or external validation.
 - Interface refinements made from that pass: the compound explorer auto-selects the first record so the structure panel is never blank; the stale caption claiming the structure image was "not embedded" was corrected to describe an RDKit depiction; IC₅₀ values now use significant-figure formatting instead of a fixed one decimal place; the record-count caption states that the API cache exposes 300 records and lists the first 200; the Methods view gained split/validation/calibration/stress-test/applicability rows.
 - Bugs found and fixed during that smoke test: edge payloads previously overwrote the graph `source`/`target` topology keys with provenance strings (now emitted as `source_reference`, with a regression test); the evidence-graph view crashed on edges whose endpoints were filtered out of scope; long evidence labels in the prediction card overlapped their values (CSS grid fix); pressing Enter in the SMILES field did not submit; collapsed icon-only navigation had no accessible labels.
-- Clean-room reproduction: `submission/KAPPA_ethnohack2026_bundle.zip` was extracted to an empty directory outside the project, then `pytest -q` (**15 passed**) and `python -m src.run_pipeline` were executed there. The rerun reproduced the stored metrics to floating-point round-off only (largest observed difference ≈1.4e-16 across ROC/PR-AUC, balanced accuracy, Brier, log loss, CV folds, stress tests and the applicability threshold), so the documented commands work from a fresh extraction and the pipeline is deterministic given the cached acquisition.
+- Clean-room reproduction: `submission/KAPPA_ethnohack2026_bundle.zip` was extracted to an empty directory outside the project, then `pytest -q` (**17 passed**) and `python -m src.run_pipeline` were executed there. The rerun reproduced the stored metrics to floating-point round-off only (largest observed difference ≈1.4e-16 across ROC/PR-AUC, balanced accuracy, Brier, log loss, CV folds, stress tests and the applicability threshold), so the documented commands work from a fresh extraction and the pipeline is deterministic given the cached acquisition.
 - External experimental validation: **not performed**.
 
 ## Independent validation opportunity and reproduction

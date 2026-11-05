@@ -12,7 +12,18 @@ KAPPA is a reproducible research prototype that keeps botanical occurrence, ethn
 - Random Forest: ROC-AUC **0.782**, PR-AUC **0.940**, balanced accuracy **0.637**, MCC **0.345**. Logistic baseline: ROC-AUC **0.703**, PR-AUC **0.907**, balanced accuracy **0.624**.
 - Document-held-out and temporal/scaffold-disjoint analyses remain **internal ChEMBL stress tests**, not external validation; temporal ROC-AUC was **0.602**. No external database, prospective, wet-lab or clinical validation has been performed.
 - Predictions are uncalibrated. A training-only Tanimoto reference threshold is shown as a relative applicability diagnostic, not a probability of correctness. Exact training-structure overlap (including the illustrative curcumin input) is retrospective.
-- No evidence types are averaged. Similarity is not a reward; model-only triage is withheld outside the empirical reference range. Read [`docs/validation_report.md`](docs/validation_report.md) and [`docs/model_card.md`](docs/model_card.md).
+- **Duplicate-structure sensitivity:** of 4,327 unique eligible structures, 371 carry more than one measurement and 32 carry both an active and an inactive one. Repeating the protocol with a median rule or with conflicting structures excluded gives holdout ROC-AUC 0.774 / 0.825 (primary 0.782) and balanced accuracy 0.671 / 0.729 (primary 0.637): ranking is moderately stable, the threshold-0.5 operating point is not. The primary result is unchanged and the analysis is reported separately.
+- No evidence types are averaged. Similarity is not a reward; model-only triage is withheld outside the empirical reference range — verified end-to-end with sucrose (max Tanimoto 0.193 < 0.3236 → `candidate_priority_score: null`). Read [`docs/validation_report.md`](docs/validation_report.md), [`docs/scientific_integrity_audit.md`](docs/scientific_integrity_audit.md) and [`docs/model_card.md`](docs/model_card.md).
+
+## Why KAPPA exists (and what it does not claim)
+
+The problem is not missing data but missing evidence contracts: occurrence, traditional-use reports, measured
+activity and pharmacogenomic guidance are routinely joined without recording which kind of statement a link is,
+and the resources themselves document this (LOTUS, NPASS, IMPPAT, NP-KG; see
+[`docs/competitive_landscape.md`](docs/competitive_landscape.md)). KAPPA's bounded contribution is an
+evidence-type contract with an explicit refusal rule, implemented and tested rather than asserted
+([`docs/innovation_statement.md`](docs/innovation_statement.md)). It does **not** claim to be the first
+integrated natural-product platform, and it explicitly credits the published work it overlaps with.
 
 ## Verified evidence demonstrations
 
@@ -43,6 +54,7 @@ Open http://localhost:8000. The app includes overview, plant-level evidence, com
 - `src/data_pipeline.py` — paginated ChEMBL acquisition, explicit filters and data audit.
 - `src/chemistry/` — RDKit structure parsing, descriptors and fingerprints.
 - `src/ml/train.py` — scaffold holdout/CV, imbalance-aware metrics, training-only sensitivity, calibration diagnostics, applicability and internal stress tests.
+- `src/ml/duplicate_sensitivity.py` — lowest/median/conflict-excluded aggregation rules under one protocol, with a reproduction check against the primary result.
 - `src/knowledge_graph/` — typed evidence/provenance graph with separate components.
 - `src/prioritisation/` — model-only in-domain triage; no composite evidence score.
 - `src/pharmacogenomics/cpic_demo.py` — cached CPIC API demonstration fetch.

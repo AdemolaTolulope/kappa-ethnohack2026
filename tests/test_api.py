@@ -52,3 +52,11 @@ def test_graph_scopes_are_separate():
     assert all(not x['id'].startswith('pgx:') for x in pilot['nodes'])
     assert all(x['id'].startswith('pgx:') for x in pgx['nodes'])
     assert any(x['id']=='pgx:variant:rs4244285' for x in pgx['nodes'])
+
+def test_out_of_domain_control_is_withheld_by_the_live_app():
+    r=client.post('/api/predict',json={'smiles':'OC[C@H]1O[C@@](CO)(O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@@H](O)[C@@H]1O'})
+    assert r.status_code==200
+    d=r.json()
+    assert d['max_training_similarity'] < d['score']['applicability_domain']['threshold']
+    assert d['in_domain'] is False
+    assert d['score']['candidate_priority_score'] is None

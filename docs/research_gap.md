@@ -23,3 +23,21 @@ This is an **integration and reproducibility contribution**, not a claim of firs
 Pilot context: *Curcuma longa*–curcumin as an illustrative plant/compound identity and occurrence anchor; human PTGS2 (COX-2; ChEMBL CHEMBL230) as a well-annotated biochemical target with assay records. ChEMBL API returned 7,482 human target IC50 records at retrieval. After predeclared exact-assay, data-quality, grey-zone and structure deduplication, 3,164 unique canonical structures remained, with both activity bands represented. This was checked by actually fetching and processing the API response on 2026-11-05.
 
 Why this is feasible: stable public target and compound IDs; measured records with literature/assay IDs; suitable data volume for a modest, transparent baseline model. Why it is limited: this is a single-target biochemical benchmark and does not establish that the plant, extract, or curcumin treats disease. Curcumin appears in the assay corpus; prediction on it is therefore flagged as a known-training-compound retrospective score, not a prospective natural-product discovery result.
+
+## Landscape refresh (2026-11-05)
+
+A fuller comparison, with per-resource purpose, evidence carried, limits and whether KAPPA duplicates it, is in
+[`competitive_landscape.md`](competitive_landscape.md). Additions since the initial reconnaissance:
+
+- **NPASS 2023** holds 43,285 natural products with measured activity values against ~7,700 targets and
+  explicitly distinguishes measured activity from similarity-estimated profiles (Zhao et al., NAR 2023,
+  DOI 10.1093/nar/gkac1069). KAPPA's activity layer is a deliberately narrow ChEMBL slice, not a competitor.
+- **IMPPAT 2.0** reports 4,010 Indian medicinal plants, 17,967 phytochemicals, 189,386 plant–part–phytochemical
+  and 89,733 plant–part–therapeutic-use associations, with predicted (not measured) targets/ADMET
+  (Vivek-Ananth et al., ACS Omega 2023, DOI 10.1021/acsomega.3c00156).
+- **NP-KG v3.0.0** is released as a multi-GB knowledge graph for natural-product–drug interactions
+  (Taneja et al., Zenodo 2024, DOI 10.5281/zenodo.12536780).
+- **A 2026 compound-centric framework** links LOTUS occurrence, taxonomy reconciliation, Murcko scaffolds and
+  "conservative ChEMBL-linked bioactivity evidence" for plant chemical space. This is the closest published
+  work in spirit, so KAPPA must **not** claim novelty for combining plant occurrence, scaffolds and ChEMBL
+  evidence; its claim is limited to the enforced evidence-type contract and refusal rule.

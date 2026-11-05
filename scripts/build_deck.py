@@ -68,10 +68,12 @@ text(s,6.9,2.6,5.0,1.9,'CYP2C19 *2 and clopidogrel are tied to CPIC guideline 10
 text(s,6.9,5.5,5.05,.4,'Missing evidence ≠ negative biology.',16,GOLD,True)
 #8
 s=base(8,'No composite ranking. Keep the prediction in scope.')
-s.shapes.add_picture(str(P/'results/figures/model_sensitivity.png'), Inches(.6), Inches(1.45), width=Inches(6.6))
+s.shapes.add_picture(str(P/'results/figures/duplicate_sensitivity.png'), Inches(.55), Inches(1.5), width=Inches(6.7))
 shape(s,7.35,1.65,5.0,2.0,PANEL,True);text(s,7.7,1.95,4.3,.35,'CURCUMIN · RETROSPECTIVE',14,MINT,True);text(s,7.7,2.45,4.3,.72,'Exact training-structure overlap\nUncalibrated model-only output',18,WHITE,True)
 text(s,7.45,4.15,4.85,1.05,'Applicability cutoff 0.324 is a training-only similarity diagnostic—not a calibrated confidence guarantee. No evidence-axis average.',14,WHITE)
-text(s,7.45,5.65,4.75,.55,'Hyperparameter sensitivity on training CV; time/document stress tests are internal ChEMBL—not external validation.',13,GOLD,True)
+text(s,.65,4.55,2.0,.3,'NOT CLAIMED',11,MINT,True)
+text(s,.65,4.9,6.4,1.5,'• No blended evidence score or evidence-axis weighting\n• No calibrated probability and no validated domain boundary\n• No external, prospective, wet-lab or clinical validation\n• No individual treatment or pharmacogenomic prediction',13,MUTED)
+text(s,7.45,5.5,4.85,.95,'Duplicate rule matters: 32 structures conflict. ROC 0.774–0.825, balanced accuracy 0.637–0.729 — ranking stable, threshold operating point not. Hyperparameter and time/document tests are internal ChEMBL, not external validation.',11.5,GOLD,True)
 #9
 s=base(9,'A working workbench—not a screenshot.')
 s.shapes.add_picture(str(P/'frontend/screenshot.png') if (P/'frontend/screenshot.png').exists() else str(P/'results/figures/pipeline_workflow.png'), Inches(.7), Inches(1.5), width=Inches(5.9))
