@@ -20,10 +20,10 @@ behaviour), **removed** (deleted because it misrepresented evidence).
 | Evidence graph | `src/knowledge_graph/graph.py` | functional (scope-limited) | Typed MultiDiGraph with node/edge provenance; PGx component intentionally disconnected; edge payload separates topology from provenance | `/api/graph`, GraphML export |
 | PGx (CPIC) | `src/pharmacogenomics/cpic_demo.py` | functional (scope-limited) | Verifies pair/allele/guideline/recommendations and refuses to write partial records; recommendation rows filtered to intermediates/poor metabolisers and `CVI ACS PCI ` | `data/raw/cpic_cyp2c19_clopidogrel.json` |
 | PGx (ClinVar) | `src/pharmacogenomics/clinvar_identity.py` | functional (identity only) | Asserts accession, cDNA change, `*2` alias and rs4244285 cross-reference before caching; carries the germline label *and* its interpretation boundary | `data/raw/clinvar_cyp2c19_star2.json` |
-| Ethnobotany | `data/processed/ethnobotanical_claims.json`; `src/ethnobotany/__init__.py` | **documentation-only** | A single attributed, qualified secondary-source record; the Python package is an empty placeholder | claim id `VELAYUDHAN2012-T1-COUGH-COLD` |
+| Ethnobotany | `data/processed/ethnobotanical_claims.json`; `src/ethnobotany/{__init__,__main__}.py`; `GET /api/ethnobotany` | functional (single record, **new this session**) | Fail-closed validator: required attribution fields, non-empty limitations, `compound_linkage` must be absent or `not asserted`, no record may claim efficacy; 3 tests pin the behaviour; CLI + API + UI render coverage | `python -m src.ethnobotany` → 1 validated record |
 | Backend | `backend/main.py` | functional | 11 routes (page, overview, compounds, structure SVG, graph, predict, pharmacogenomics, genomic-context, data-quality, metrics, export) | exercised route-by-route, see §3 |
 | Frontend | `frontend/index.html` | functional | Single-file SPA, 8 views, reads only relative `/api/*`, no external CDN | headless-browser pass, 0 console errors |
-| Tests | `tests/test_core.py`, `tests/test_api.py` | functional | 17 tests covering curation, splits, gating, graph provenance/topology, PGx filtering, ClinVar semantics, OOD withholding, API behaviour | `pytest -q` → 17 passed |
+| Tests | `tests/test_core.py`, `tests/test_api.py` | functional | 21 tests covering curation, splits, gating, graph provenance/topology, PGx filtering, ClinVar semantics, OOD withholding, ethnobotany record validation/fail-closed rejection, AD wording in the UI, API behaviour | `pytest -q` → 21 passed |
 | Figures | `scripts/make_figures.py`, `src/ml/train.py::_figures` | functional | 10 PNGs regenerated from results | `results/figures/` |
 | Deck | `scripts/build_deck.py` | functional | Generates a 10-slide deck; rendered and visually checked this session | `presentation/rendered/` |
 | Notebooks | `notebooks/*.ipynb` | partial | Read the executed outputs; they do not retrain models | 6 notebooks |
@@ -48,7 +48,7 @@ behaviour), **removed** (deleted because it misrepresented evidence).
 ## 3. Executed verification (actual outputs)
 
 ```
-pytest -q                                        -> 17 passed
+pytest -q                                        -> 21 passed
 python -m src.run_pipeline                       -> raw 7,482; curated 3,164; 2,505 active / 659 inactive
 python -m src.ml.duplicate_sensitivity           -> 3 rules scored; primary reproduction check True
 curl /api/overview|compounds|metrics|export|graph|pharmacogenomics|genomic-context  -> 200
@@ -64,16 +64,16 @@ headless Chromium, 8 views                       -> 0 console errors, 0 failed r
   in ChEMBL; no cell-based, phenotypic or organism-level endpoint is modelled.
 - **No external validation.** Both stress tests are internal ChEMBL re-splits.
 - **Uncalibrated probabilities.** Diagnostics only; no calibration curve is fitted and none is claimed.
-- **Ethnobotany is one qualified secondary report**, not a corpus, and `src/ethnobotany/` is a placeholder
-  package rather than a parser or ontology mapper. It should be described that way in any write-up.
+- **Ethnobotany is one qualified secondary report**, not a corpus. The module is a real fail-closed validator,
+  but it has exactly one record and no ontology mapping or literature ingestion; coverage is a demonstration.
 - **PGx is a demonstration of curated evidence**, not a KAPPA-computed pharmacogenomic prediction.
 - **The graph is a demonstration artefact** (72 nodes on the pilot build), not a queryable knowledge base.
 - **Deployment is unverified**: the app has only ever run from this sandbox via uvicorn.
 
 ## 5. Recommended next engineering steps, in priority order
 
-1. Package the ethnobotany layer properly (parser + source schema + licence check) before adding any
-   second record; a one-record module that looks like infrastructure invites overclaiming.
+1. Grow the ethnobotany corpus under the existing validator (licence check per source, same field discipline)
+   before any coverage or systematic-review language is used.
 2. Add a second, genuinely independent assay source for the same target to test transportability.
 3. Fit and report a calibration model **inside training folds only**, then re-report Brier/ECE.
 4. Add `pandera`/`pydantic` schema validation at the data boundary so silent field drift cannot recur.

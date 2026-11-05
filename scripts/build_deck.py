@@ -59,7 +59,7 @@ s=base(6,'A genuine benchmark—with a visible caveat.')
 s.shapes.add_picture(str(P/'results/figures/model_comparison.png'), Inches(.65), Inches(1.45), width=Inches(6.3))
 for i,(a,b) in enumerate([('Random Forest','ROC-AUC 0.782 · PR-AUC 0.940'),('Logistic baseline','ROC-AUC 0.703 · PR-AUC 0.907'),('3-fold scaffold CV','Mean ROC 0.810 · PR 0.935')]):
  y=1.8+i*1.1;shape(s,7.1,y,5.2,.84,PANEL,True);text(s,7.4,y+.1,1.7,.25,a,12,MINT,True);text(s,9.0,y+.1,3,.43,b,13,WHITE,True)
-text(s,7.2,5.4,5.05,.65,'Test prevalence 82.6% (PR baseline); balanced accuracy 0.637. Strong imbalance; internal data only, not external validation.',13,GOLD,True)
+text(s,7.2,5.35,5.05,.95,'Test prevalence 82.6% (PR baseline); balanced accuracy 0.637. Strong imbalance; internal data only, not external validation.\n\nAn earlier 0.832/0.966 pair is withdrawn: 7 protocols fail to reproduce it.',12,GOLD,True)
 #7
 s=base(7,'A graph that distinguishes identifiers from inference.')
 s.shapes.add_picture(str(P/'results/figures/pharmacogenomics_graph.png'), Inches(.65), Inches(1.55), width=Inches(6.2))
@@ -82,7 +82,7 @@ for i,(a,b) in enumerate([('Explore','Measured structures and descriptors'),('In
 text(s,.85,6.15,11,.3,'Live demo: plant context → compound table → model card → graph → methods/provenance.',12,GOLD)
 #10
 s=base(10,'Useful now. Clear about what comes next.')
-shape(s,.75,1.6,5.7,3.9,PANEL,True);text(s,1.05,1.92,4.8,.35,'DELIVERED',15,MINT,True);text(s,1.05,2.55,4.8,2.4,'Working API + UI (local)\n3,164-record data pipeline\nScaffold benchmark + 15 tests\nEvidence graph + docs\n10-slide deck + rendered PDF',16,WHITE)
+shape(s,.75,1.6,5.7,3.9,PANEL,True);text(s,1.05,1.92,4.8,.35,'DELIVERED',15,MINT,True);text(s,1.05,2.5,4.8,2.6,'Working API + UI (local)\n3,164-record data pipeline\nScaffold benchmark + 21 tests\nOut-of-domain refusal + ethnobotany validator\nEvidence graph + audit docs\n10-slide deck + rendered PDF',15,WHITE)
 shape(s,6.9,1.6,5.7,3.9,PANEL,True);text(s,7.2,1.92,4.8,.35,'NEXT VALIDATION',15,CYAN,True);text(s,7.2,2.55,4.8,2.4,'Primary-source ethnobotanical evidence + permission\nIndependent assay/database evaluation\nClinical PGx update + indication checks\nProbability calibration and domain review\nProspective experimental follow-up',16,WHITE)
 text(s,1.05,6.15,11.0,.35,'KAPPA turns fragmented evidence into a traceable research question—not a therapeutic promise.',17,GOLD,True)
 r.save(P/'presentation/KAPPA_pitch_deck.pptx')

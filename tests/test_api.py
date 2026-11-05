@@ -60,3 +60,16 @@ def test_out_of_domain_control_is_withheld_by_the_live_app():
     assert d['max_training_similarity'] < d['score']['applicability_domain']['threshold']
     assert d['in_domain'] is False
     assert d['score']['candidate_priority_score'] is None
+
+def test_ethnobotany_endpoint_serves_validated_records_with_boundaries():
+    d = client.get('/api/ethnobotany').json()
+    assert d['coverage']['records'] == 1
+    rec = d['records'][0]
+    assert rec['compound_linkage'] == 'not asserted'
+    assert rec['is_efficacy_evidence'] is False
+    assert 'not efficacy' in d['evidence_boundary']
+
+def test_frontend_withholds_probability_outside_reference_range():
+    html = client.get('/').text
+    assert 'Not rankable · probability withheld' in html
+    assert 'd.in_domain' in html

@@ -14,7 +14,7 @@ We reviewed established resources including LOTUS, IMPPAT, NPASS, ChEMBL, Open T
 
 ## Slide 4 — How it works
 
-Our pilot retains a Wikidata occurrence statement for Curcuma longa and curcumin, separately records a qualified secondary ethnobotanical report, and analyzes human PTGS2 assay records from ChEMBL. FastAPI serves evidence-aware results; NetworkX keeps edge types and sources visible. An independent CPIC CYP2C19–clopidogrel demonstration occupies a disconnected PGx graph component. Occurrence, traditional-use report, assay, model and PGx evidence are not interchangeable.
+Our pilot retains a Wikidata occurrence statement for Curcuma longa and curcumin, separately records a qualified secondary ethnobotanical report, and analyzes human PTGS2 assay records from ChEMBL. FastAPI serves evidence-aware results; NetworkX keeps edge types and sources visible. That record is validated by code, not by prose: the ethnobotany module is fail-closed and rejects any record that asserts a compound linkage. An independent CPIC CYP2C19–clopidogrel demonstration occupies a disconnected PGx graph component. Occurrence, traditional-use report, assay, model and PGx evidence are not interchangeable.
 
 ## Slide 5 — Data and labels
 

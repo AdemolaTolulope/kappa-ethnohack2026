@@ -58,9 +58,9 @@
             505
           ]
         ],
-        "brier_score_uncalibrated": 0.13634549299586965,
+        "brier_score_uncalibrated": 0.1363454929958696,
         "log_loss_uncalibrated": 0.42783615885195725,
-        "mean_predicted_probability": 0.7024597054172864,
+        "mean_predicted_probability": 0.7024597054172863,
         "observed_prevalence": 0.8068181818181818
       },
       {
@@ -290,7 +290,7 @@
               504
             ]
           ],
-          "brier_score_uncalibrated": 0.13673993540724616,
+          "brier_score_uncalibrated": 0.1367399354072462,
           "log_loss_uncalibrated": 0.4281470498927628,
           "mean_predicted_probability": 0.7024785757250797,
           "observed_prevalence": 0.8068181818181818
@@ -351,7 +351,7 @@
           ],
           "brier_score_uncalibrated": 0.15977669696170083,
           "log_loss_uncalibrated": 0.49623818539174874,
-          "mean_predicted_probability": 0.6185500171671008,
+          "mean_predicted_probability": 0.6185500171671007,
           "observed_prevalence": 0.7486910994764397
         },
         {
@@ -396,7 +396,7 @@
             ]
           ],
           "brier_score_uncalibrated": 0.1541851458751454,
-          "log_loss_uncalibrated": 0.47950479591536904,
+          "log_loss_uncalibrated": 0.479504795915369,
           "mean_predicted_probability": 0.6696150883827133,
           "observed_prevalence": 0.789738430583501
         }
@@ -454,7 +454,7 @@
               460
             ]
           ],
-          "brier_score_uncalibrated": 0.1714270883681259,
+          "brier_score_uncalibrated": 0.17142708836812587,
           "log_loss_uncalibrated": 0.5221939759606292,
           "mean_predicted_probability": 0.6043873980857429,
           "observed_prevalence": 0.8068181818181818
@@ -477,9 +477,9 @@
               680
             ]
           ],
-          "brier_score_uncalibrated": 0.16809505135907693,
-          "log_loss_uncalibrated": 0.5156782055344705,
-          "mean_predicted_probability": 0.633389433200212,
+          "brier_score_uncalibrated": 0.1680950513590769,
+          "log_loss_uncalibrated": 0.5156782055344706,
+          "mean_predicted_probability": 0.6333894332002119,
           "observed_prevalence": 0.789738430583501
         }
       ],
@@ -602,7 +602,7 @@
   },
   "calibration_diagnostics": {
     "Random forest": {
-      "expected_calibration_error_10_equal_width_bins": 0.11980688873383372,
+      "expected_calibration_error_10_equal_width_bins": 0.1198068887338337,
       "reliability_bins": [
         {
           "lower": 0.1,
@@ -636,14 +636,14 @@
           "lower": 0.5,
           "upper": 0.6000000000000001,
           "n": 92,
-          "mean_probability": 0.5651382661309254,
+          "mean_probability": 0.5651382661309253,
           "observed_rate": 0.717391304347826
         },
         {
           "lower": 0.6000000000000001,
           "upper": 0.7000000000000001,
           "n": 148,
-          "mean_probability": 0.6480462677999044,
+          "mean_probability": 0.6480462677999045,
           "observed_rate": 0.8175675675675675
         },
         {

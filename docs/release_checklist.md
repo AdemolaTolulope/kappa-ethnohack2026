@@ -11,16 +11,17 @@ described as complete before it actually happens.
 - [x] Uncalibrated probability diagnostics (Brier 0.1284, ECE 0.1198) and training-only empirical applicability reference (max Tanimoto 0.3235867).
 - [x] Composite evidence score removed; separate evidence axes (identity, measured activity, occurrence, secondary report, PGx) preserved.
 - [x] CPIC CYP2C19–clopidogrel demonstration cached with phenotype/`CVI ACS PCI` population filtering; ClinVar VCV000016897 cached as a molecular-identity cross-reference including its "Likely benign; other" germline label and its interpretation boundary.
-- [x] `pytest -q` → 17 passed (includes duplicate-aggregation rules and out-of-domain withholding).
+- [x] `pytest -q` → 21 passed (includes duplicate-aggregation rules and out-of-domain withholding).
 - [x] Duplicate-structure aggregation sensitivity run (lowest / median / conflicting-excluded) with an exact reproduction check of the primary result.
 - [x] Out-of-domain control verified end-to-end: sucrose max Tanimoto 0.193 below the 0.3236 reference, triage value withheld by API and UI.
 - [x] Competitive landscape, technical assessment, scientific integrity audit, innovation statement and this readiness assessment written from cited sources and executed commands.
+- [x] Out-of-domain interface behaviour fixed and verified: sucrose shows “Not rankable · probability withheld” with the similarity diagnostic, an in-domain molecule still shows its number, and the SMILES field is no longer overwritten on auto-load (headless-browser screenshots in `results/smoke/`).
 - [x] Running FastAPI app exercised route-by-route; live headless-Chromium pass over all eight views with 0 console errors and 0 failed requests (screenshots in `results/smoke/`).
 - [x] Documentation set reconciled: methodology, architecture, research gap, responsible AI, limitations, model card, provenance register, data provenance, phase-11 audit, validation report, research data README.
 - [x] 10-slide deck rebuilt and rendered to `presentation/rendered/` (PDF + 10 slide PNGs); four layout defects found in the render and fixed.
 - [x] Submission copy drafted: Devpost description, pitch script, demo script, video narration, team-contribution template, third-party disclosure.
 - [x] Local git repository initialised with the current tree committed.
-- [x] Self-contained bundle built at `submission/KAPPA_ethnohack2026_bundle.zip` (110 files, 13.2 MB; includes cached data, model, figures, rendered deck and screenshots) and verified by extracting it to an empty directory, where `pytest -q` passed and `python -m src.run_pipeline` reproduced the stored metrics to floating-point round-off.
+- [x] Self-contained bundle rebuilt at `submission/KAPPA_ethnohack2026_bundle.zip` (126 files, 15 MB, untracked by design; includes cached data, model, figures, rendered deck, screenshots, the AD/ethnobotany code and the metric diagnosis) and re-verified by extracting it to an empty directory: `pytest -q` → **21 passed**, `python -m src.run_pipeline` → stored metrics reproduced to ≤1.2e-16.
 
 ## Deliverables index (requested set)
 
@@ -66,7 +67,7 @@ ethnobotanical components.
 ```bash
 python -m pip install -r requirements.txt
 python -m src.run_pipeline          # uses the cached acquisition; regenerates data, model, metrics, figures, graph
-pytest -q                           # expect 17 passed
+pytest -q                           # expect 21 passed
 uvicorn backend.main:app --host 0.0.0.0 --port 8000
 python scripts/make_figures.py      # regenerate result figures
 python scripts/build_deck.py        # regenerate the 10-slide deck

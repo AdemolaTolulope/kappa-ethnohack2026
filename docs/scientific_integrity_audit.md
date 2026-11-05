@@ -39,6 +39,31 @@ ROC-AUC, PR-AUC and balanced accuracy reproduce to absolute difference **0.0** (
 - Because each rule has its own structure set, each gets its own fold assignment; a paired comparison on a
   common subset was **not** performed and is listed as future work.
 
+## 1b. Historical metric discrepancy: 0.832 / 0.966 vs 0.7819 / 0.9396 (Priority C)
+
+Command: `python scripts/diagnose_historical_metrics.py` (≈60 s) → `results/reports/historical_metric_diagnosis.json`.
+Full write-up: [`historical_metric_discrepancy.md`](historical_metric_discrepancy.md).
+
+Seven protocols were scored against the historical pair, using the same featuriser, model factory and curation
+filters as the primary analysis. None reproduces it.
+
+| Protocol | ROC-AUC | PR-AUC |
+|---|---|---|
+| Audited primary (retained) | 0.7819 | 0.9396 |
+| Random stratified split, no grouping (leakage) | 0.9270 | 0.9763 |
+| Scaffold folds 0–4 | 0.7819 / 0.7959 / 0.8023 / 0.8392 / 0.8589 | 0.9396 / 0.9277 / 0.9302 / 0.9399 / 0.9554 |
+| Scaffold split, no exact-structure dedup | 0.8140 | 0.9517 |
+| Grey band relabelled inactive (5,035 rows) | 0.7416 | 0.7732 |
+| Pooled out-of-fold, 5 folds | 0.8194 | 0.9400 |
+| Random split, duplicates kept | 0.8979 | 0.9698 |
+| One arbitrary scaffold split, 12 seeds | 0.8039 – 0.8797 | 0.9202 – 0.9704 |
+
+Findings: the historical pair lies **inside** the spread of a single arbitrary scaffold split (closest seed 6 →
+0.8416 / 0.9650), which is the most consistent explanation — one favourable, non-pre-registered split. Leakage
+produces the high PR-AUC but overshoots ROC-AUC by 0.09, so it is ruled out as the cause of *this* pair. The
+decision is recorded as: **audited primary retained, historical pair withdrawn, no verified error found.** No
+number in the app, deck, docs or bundle was altered to match the historical figure.
+
 ## 2. Applicability domain: a real out-of-domain control
 
 Threshold (training-only, from the stored model bundle): **0.3235867** (5th percentile of max Morgan r2
@@ -69,9 +94,11 @@ boundary, and near-threshold behaviour should be read that way.
 
 | Check | Command | Result |
 |---|---|---|
-| Test suite | `pytest -q` | **17 passed** |
+| Test suite | `pytest -q` | **21 passed** |
 | Full pipeline | `python -m src.run_pipeline` | 7,482 raw → 3,164 curated (2,505 / 659); metrics, figures and GraphML regenerated |
-| Clean-room extraction | unzip `submission/KAPPA_ethnohack2026_bundle.zip` in an empty dir | `pytest -q` 17 passed; pipeline reproduced stored metrics to ≤1.4e-16 |
+| Clean-room extraction | unzip the rebuilt `submission/KAPPA_ethnohack2026_bundle.zip` (126 files) in an empty dir | **21 passed**; pipeline reproduced stored metrics to ≤1.2e-16 |
+| Historical-metric diagnosis | `python scripts/diagnose_historical_metrics.py` | 7 protocols scored; none reproduces 0.832 / 0.966; primary unchanged (§1b) |
+| Ethnobotany validation | `python -m src.ethnobotany` and `GET /api/ethnobotany` | coverage note + 1 validated record; validator rejects records that assert compound linkage |
 | Sensitivity analysis | `python -m src.ml.duplicate_sensitivity` | primary reproduction check True |
 | Live app | `uvicorn backend.main:app` | all routes 200/expected; invalid SMILES → 400 |
 
@@ -80,16 +107,17 @@ boundary, and near-threshold behaviour should be read that way.
 Checked: `docs/model_card.md`, `docs/validation_report.md`, `README.md`, `frontend/index.html`,
 `presentation/KAPPA_pitch_deck.pptx`, `submission/*`, notebooks.
 
-- Test count: the audit and validation report now both state 17 (was 14 before this session's two additions).
+- Test count: the audit, validation report, technical assessment and readiness docs now all state 21 (17 before the AD/ethnobotany additions).
 - Metrics quoted in the deck, README, model card and app match `model_metrics.json` (ROC 0.7819 → 0.782,
   PR 0.9396 → 0.940, balanced accuracy 0.6372 → 0.637, prevalence 0.8262 → 82.6%).
 - ClinVar: all artefacts now describe the "Likely benign; other" germline label and its boundary; none of them
   claims the record carries no significance summary (this was wrong before 2026-11-05).
 - The deck's "delivered" slide previously implied a completed submission; it now says "working API + UI
   (local) … 10-slide deck + rendered PDF".
-- Remaining artefact that still overstates scope: `src/ethnobotany/` is an empty package while the claim record
-  it "supports" is prominent. Flagged in `docs/technical_assessment.md` §4; not renamed during this audit
-  because doing so would touch import paths late in the release cycle.
+- The earlier overstatement that `src/ethnobotany/` was "an empty package" is now historical: the package exists
+  and validates the record fail-closed (Priority B). `docs/technical_assessment.md` §4 is updated accordingly.
+- The bundle zip in `submission/` predates the AD/ethnobotany changes and is untracked; it must be regenerated
+  before it is offered as the portable copy.
 
 ## 5. Security and identity
 
@@ -125,5 +153,9 @@ applicability boundary; a curated ethnobotanical corpus; completion of the Ethno
 1. Paired, common-subset comparison of aggregation rules (removes split-assignment noise).
 2. Calibration fitted inside training folds, reported on holdout, before any probability is described as a risk.
 3. A second independent assay source for the same target, to test transportability honestly.
-4. Package or remove the placeholder ethnobotany module.
-5. Human sign-off by a team member on every quantitative claim before submission.
+4. ~~Package or remove the placeholder ethnobotany module~~ — **done** (Priority B): `src/ethnobotany/` validates
+   records fail-closed. Next step is corpus scope, not packaging: a licence-cleared second and third record with
+   the same field discipline before any coverage claim is made.
+5. Rebuild the release bundle after the AD/ethnobotany changes and re-run the clean-room check (the current zip
+   predates them).
+6. Human sign-off by a team member on every quantitative claim before submission.

@@ -101,3 +101,29 @@ def test_duplicate_aggregation_rules_are_explicit_and_preserve_primary():
     # Exclusion rule drops the conflicting structure entirely.
     assert 'CCO' not in excl.index
     assert excl.loc['CCCl','label']==1 and excl.loc['c1ccccc1','label']==0
+
+def test_ethnobotany_records_validate_and_never_assert_compound_linkage():
+    from src.ethnobotany import ClaimValidationError, coverage_note, load_claims, summarise
+    payload = load_claims(ROOT/'data/processed/ethnobotanical_claims.json')
+    assert len(payload['records']) == 1
+    s = summarise(payload['records'][0])
+    assert s['compound_linkage'] == 'not asserted'
+    assert s['is_efficacy_evidence'] is False
+    assert s['is_compound_specific_evidence'] is False
+    assert s['limitations'] and s['source_url_or_doi'].startswith('https://')
+    note = coverage_note(ROOT/'data/processed/ethnobotanical_claims.json')
+    assert note['records'] == 1 and 'limited demonstration corpus' in note['status']
+
+def test_ethnobotany_validation_fails_closed(tmp_path):
+    from src.ethnobotany import ClaimValidationError, load_claims
+    bad = tmp_path/'claims.json'
+    bad.write_text(json.dumps({'retrieval_date':'2026-11-05','records':[{
+        'claim_id':'X','taxon':'X','claim_type':'t','reported_indication_as_published':'i',
+        'evidence_status':'e','source':{'authors':['A'],'year':2000,'title':'t','journal':'j','url':'https://example.org'},
+        'limitations':['l'],'compound_linkage':'curcumin causes the effect'}]}))
+    try:
+        load_claims(bad)
+    except ClaimValidationError as exc:
+        assert 'compound_linkage' in str(exc)
+    else:
+        raise AssertionError('a record asserting compound linkage must be rejected')

@@ -41,6 +41,17 @@ def structure(smiles:str):
  drawer.DrawMolecule(mol); drawer.FinishDrawing()
  return Response(content=drawer.GetDrawingText(),media_type='image/svg+xml')
 
+@app.get('/api/ethnobotany')
+def ethnobotany():
+ from src.ethnobotany import ClaimValidationError, coverage_note, load_claims, summarise
+ try:
+  payload=load_claims(ROOT/'data/processed/ethnobotanical_claims.json')
+ except ClaimValidationError as exc:
+  raise HTTPException(500, f'Ethnobotanical records failed provenance validation: {exc}')
+ return {'coverage':coverage_note(ROOT/'data/processed/ethnobotanical_claims.json'),
+   'records':[summarise(r) for r in payload['records']],
+   'evidence_boundary':('A documented traditional-use report is not efficacy, safety, mechanism or compound-specific evidence. '
+     'KAPPA does not infer a link between this practice and the PTGS2 model or curcumin.')}
 @app.get('/api/graph')
 def graph(scope:str='pilot'):
  d=data(); unique=d.drop_duplicates('molecule_chembl_id').head(35)

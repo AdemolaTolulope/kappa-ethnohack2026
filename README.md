@@ -13,6 +13,10 @@ KAPPA is a reproducible research prototype that keeps botanical occurrence, ethn
 - Document-held-out and temporal/scaffold-disjoint analyses remain **internal ChEMBL stress tests**, not external validation; temporal ROC-AUC was **0.602**. No external database, prospective, wet-lab or clinical validation has been performed.
 - Predictions are uncalibrated. A training-only Tanimoto reference threshold is shown as a relative applicability diagnostic, not a probability of correctness. Exact training-structure overlap (including the illustrative curcumin input) is retrospective.
 - **Duplicate-structure sensitivity:** of 4,327 unique eligible structures, 371 carry more than one measurement and 32 carry both an active and an inactive one. Repeating the protocol with a median rule or with conflicting structures excluded gives holdout ROC-AUC 0.774 / 0.825 (primary 0.782) and balanced accuracy 0.671 / 0.729 (primary 0.637): ranking is moderately stable, the threshold-0.5 operating point is not. The primary result is unchanged and the analysis is reported separately.
+- **Metric history (resolved, not hidden):** an earlier draft quoted ROC-AUC **0.832** / PR-AUC **0.966**. No protocol
+  available in this repository reproduces that pair; it sits inside the spread of one arbitrary scaffold split
+  (ROC-AUC 0.804–0.880 across 12 unpacked seeds). The audited **0.782 / 0.940** result is retained unchanged and the
+  historical pair is withdrawn — evidence and code in [`docs/historical_metric_discrepancy.md`](docs/historical_metric_discrepancy.md).
 - No evidence types are averaged. Similarity is not a reward; model-only triage is withheld outside the empirical reference range — verified end-to-end with sucrose (max Tanimoto 0.193 < 0.3236 → `candidate_priority_score: null`). Read [`docs/validation_report.md`](docs/validation_report.md), [`docs/scientific_integrity_audit.md`](docs/scientific_integrity_audit.md) and [`docs/model_card.md`](docs/model_card.md).
 
 ## Why KAPPA exists (and what it does not claim)
@@ -28,7 +32,10 @@ integrated natural-product platform, and it explicitly credits the published wor
 ## Verified evidence demonstrations
 
 - **Occurrence:** Wikidata Q312266 P703 reports curcumin “found in taxon” *Curcuma longa* Q42562. This is occurrence/taxonomy context, not traditional use or efficacy.
-- **Ethnobotany:** one separately attributed 2012 secondary-source report describes a turmeric cough/cold practice. The paper cites a Malayalam book not independently accessed and does not identify the specific community/locality. It is a report of a practice, not efficacy or safety evidence; no mechanistic connection to curcumin/PTGS2 is asserted.
+- **Ethnobotany:** one separately attributed 2012 secondary-source report describes a turmeric cough/cold practice, and it
+  is now validated by code rather than described in prose: `src/ethnobotany/` enforces required provenance fields
+  (authors, year, title, journal, URL or DOI), non-empty limitations, and refuses any record that asserts a
+  compound linkage; `/api/ethnobotany` and the UI show coverage plus the validated record. The paper cites a Malayalam book not independently accessed and does not identify the specific community/locality. It is a report of a practice, not efficacy or safety evidence; no mechanistic connection to curcumin/PTGS2 is asserted.
 - **Pharmacogenomics:** a verified, independent CPIC CYP2C19–clopidogrel guideline demonstration includes an identity-only ClinVar cross-reference for CYP2C19 c.681G>A / rs4244285 / *2, whose cached 'Likely benign; other' germline label concerns a not-specified disease trait rather than drug-metabolizer function. CPIC recommendations are displayed only with the intended phenotype and `CVI ACS PCI` population context. The demo has no patient genotype and is intentionally disconnected from the natural-product/curcumin model.
 
 Source rights, retrieval URLs and limitations are in [`docs/provenance_register.md`](docs/provenance_register.md). Do not infer evidence from data sources not downloaded and verified.
@@ -57,6 +64,7 @@ Open http://localhost:8000. The app includes overview, plant-level evidence, com
 | How does it compare with LOTUS, IMPPAT, NPASS, ChEMBL, NP-KG, Open Targets? | [`docs/competitive_landscape.md`](docs/competitive_landscape.md) |
 | What is actually implemented, and what is a placeholder? | [`docs/technical_assessment.md`](docs/technical_assessment.md) |
 | What was audited, and what did the audit find? | [`docs/scientific_integrity_audit.md`](docs/scientific_integrity_audit.md) |
+| Why do earlier numbers (0.832 / 0.966) differ from the reported ones? | [`docs/historical_metric_discrepancy.md`](docs/historical_metric_discrepancy.md) |
 | How were the numbers produced? | [`docs/scientific_methodology.md`](docs/scientific_methodology.md), [`docs/validation_report.md`](docs/validation_report.md) |
 | What may and may not be claimed? | [`docs/model_card.md`](docs/model_card.md), [`docs/limitations.md`](docs/limitations.md), [`docs/responsible_ai.md`](docs/responsible_ai.md) |
 | Where does each byte come from, and under what licence? | [`docs/provenance_register.md`](docs/provenance_register.md), [`docs/data_provenance.md`](docs/data_provenance.md) |
@@ -69,12 +77,14 @@ Open http://localhost:8000. The app includes overview, plant-level evidence, com
 - `src/chemistry/` — RDKit structure parsing, descriptors and fingerprints.
 - `src/ml/train.py` — scaffold holdout/CV, imbalance-aware metrics, training-only sensitivity, calibration diagnostics, applicability and internal stress tests.
 - `src/ml/duplicate_sensitivity.py` — lowest/median/conflict-excluded aggregation rules under one protocol, with a reproduction check against the primary result.
+- `src/ethnobotany/` — fail-closed provenance validator for the single ethnobotanical record (`python -m src.ethnobotany`).
 - `src/knowledge_graph/` — typed evidence/provenance graph with separate components.
 - `src/prioritisation/` — model-only in-domain triage; no composite evidence score.
 - `src/pharmacogenomics/cpic_demo.py` — cached CPIC API demonstration fetch.
 - `backend/main.py` — FastAPI endpoints and static application.
 - `frontend/index.html` — responsive no-CDN research UI.
 - `data/` — cached source records and processed outputs; see rights register before re-use.
+- `scripts/diagnose_historical_metrics.py` — protocol-by-protocol diagnosis of the withdrawn historical metrics.
 - `results/` — measured metrics, audit outputs, figures and tables.
 - `docs/` — audit, validation, model card, provenance, methodology, limitations and responsible-AI notes.
 - `submission/`, `presentation/` — draft materials; team identity and contributions remain placeholders until confirmed.
@@ -85,9 +95,24 @@ Model scores are not affinity estimates, clinical outcomes or treatment benefit.
 
 ## EthnoHack submission status
 
-The slide deck is capped at 10 slides, renders cleanly ([`presentation/rendered/`](presentation/rendered/)), and written Devpost, demo and video drafts are prepared. The pipeline, tests and running interface have been verified locally, including a headless-browser pass with screenshots in [`results/smoke/`](results/smoke/).
+The slide deck is capped at 10 slides, renders cleanly ([`presentation/rendered/`](presentation/rendered/)), and written Devpost, demo and video drafts are prepared. The pipeline, **21** tests and the running interface have been verified locally, including a headless-browser pass with screenshots in [`results/smoke/`](results/smoke/).
 
 A portable copy of the whole project (cached data, model, figures, rendered deck, screenshots) is at `submission/KAPPA_ethnohack2026_bundle.zip`; it was extracted to a clean directory where the tests passed and the pipeline reproduced the stored metrics. A public source repository, deployment URL, pitch recording, confirmed 2–5 member team and Devpost submission are **not** in place, and the organisers still need to confirm whether late registration and this team's eligibility are possible. Do not describe KAPPA as a completed submission until those gates are satisfied. The itemised state, including the exact commands and the claims this project deliberately does not make, is in [`docs/release_checklist.md`](docs/release_checklist.md).
+
+## Repository state, hygiene and security
+
+- Branch `master`, linear history, no force-pushes or history rewrites. The release bundle zip is generated
+  locally and is **not** tracked (`submission/*.zip` is in `.gitignore`); it is rebuilt from source on demand.
+- The tracked tree contains **no credentials, tokens, private keys, personal data or machine-specific absolute
+  paths**; `.env.example` holds only `KAPPA_DATA_DIR=data`. An automated scan is described in
+  [`docs/github_release_checklist.md`](docs/github_release_checklist.md).
+- The app makes **no outbound network calls at request time**: it serves cached ChEMBL/CPIC/ClinVar/UniProt files
+  from `data/`. Only explicit `src/*` fetch scripts touch the network, and they are never invoked by the API.
+- No telemetry, analytics, cookies, CDNs or third-party fonts; the frontend is a single local file.
+- **Publishing status: not published.** No git remote or GitHub credential exists in this environment, and the
+  target repository owner/name has not been confirmed. Per the project's own rule, KAPPA is not pushed anywhere
+  until an authorised route to the correct existing repository is provided; nothing is force-pushed and no
+  branch or tag is ever deleted.
 
 ## Attribution and licences
 
