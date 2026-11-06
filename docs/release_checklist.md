@@ -21,7 +21,7 @@ described as complete before it actually happens.
 - [x] 10-slide deck rebuilt and rendered to `presentation/rendered/` (PDF + 10 slide PNGs); four layout defects found in the render and fixed.
 - [x] Submission copy drafted: Devpost description, pitch script, demo script, video narration, team-contribution template, third-party disclosure.
 - [x] Local git repository initialised with the current tree committed.
-- [x] Self-contained bundle rebuilt at `submission/KAPPA_ethnohack2026_bundle.zip` (129 files, 16 MB, untracked by design; includes cached data, model, figures, rendered deck, screenshots, the AD/ethnobotany code and the metric diagnosis) and re-verified by extracting it to an empty directory: `pytest -q` → **22 passed**, `python -m src.run_pipeline` → stored metrics reproduced to ≤1.2e-16.
+- [x] Self-contained bundle rebuilt at `submission/KAPPA_ethnohack2026_bundle.zip` (131 files, 16 MB, untracked by design; includes cached data, model, figures, rendered deck, screenshots, the AD/ethnobotany code and the metric diagnosis) and re-verified by extracting it to an empty directory: `pytest -q` → **22 passed**, `python -m src.run_pipeline` → stored metrics reproduced to ≤1.2e-16.
 
 ## Deliverables index (requested set)
 
