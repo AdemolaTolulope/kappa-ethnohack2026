@@ -1,6 +1,9 @@
 # Public repository (GitHub) release preparation checklist
 
-Nothing here has been executed against a remote: the workspace is a local git repository on branch `master`
+**Executed 2026-11-06:** the repository was created empty by its owner and the local history was pushed to
+[https://github.com/AdemolaTolulope/kappa-ethnohack2026](https://github.com/AdemolaTolulope/kappa-ethnohack2026) (default branch `main`, fast-forward only), then verified by an anonymous clone that passed the
+tests and reproduced the metrics. The notes below are kept as the record of what was checked beforehand.
+The workspace was a local git repository on branch `master`
 with a linear history and **no remote, no credentials, and no push has occurred** (checked 2026-11-05:
 `git remote -v` empty, no `gh` binary, no GitHub connector available in this environment). Publishing requires
 your approval, the correct repository identity, and an authorised access route. This checklist is the sequence

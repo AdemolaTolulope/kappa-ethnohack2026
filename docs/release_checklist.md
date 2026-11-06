@@ -20,7 +20,7 @@ described as complete before it actually happens.
 - [x] Documentation set reconciled: methodology, architecture, research gap, responsible AI, limitations, model card, provenance register, data provenance, phase-11 audit, validation report, research data README.
 - [x] 10-slide deck rebuilt and rendered to `presentation/rendered/` (PDF + 10 slide PNGs); four layout defects found in the render and fixed.
 - [x] Submission copy drafted: Devpost description, pitch script, demo script, video narration, team-contribution template, third-party disclosure.
-- [x] Local git repository initialised with the current tree committed.
+- [x] **Published to GitHub** (2026-11-06): [https://github.com/AdemolaTolulope/kappa-ethnohack2026](https://github.com/AdemolaTolulope/kappa-ethnohack2026), branch `main`, fast-forward push, no force-push and no history rewrite. Verified after the push by cloning the public repository anonymously into an empty directory: 131 files, `pytest -q` → 22 passed, `python -m src.run_pipeline` → stored metrics reproduced exactly (ROC-AUC 0.781897, PR-AUC 0.939647, balanced accuracy 0.637210).
 - [x] Self-contained bundle rebuilt at `submission/KAPPA_ethnohack2026_bundle.zip` (131 files, 16 MB, untracked by design; includes cached data, model, figures, rendered deck, screenshots, the AD/ethnobotany code and the metric diagnosis) and re-verified by extracting it to an empty directory: `pytest -q` → **22 passed**, `python -m src.run_pipeline` → stored metrics reproduced to ≤1.2e-16.
 
 ## Deliverables index (requested set)

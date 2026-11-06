@@ -98,7 +98,7 @@ Model scores are not affinity estimates, clinical outcomes or treatment benefit.
 
 The slide deck is capped at 10 slides, renders cleanly ([`presentation/rendered/`](presentation/rendered/)), and written Devpost, demo and video drafts are prepared. The pipeline, **21** tests and the running interface have been verified locally, including a headless-browser pass with screenshots in [`results/smoke/`](results/smoke/).
 
-A portable copy of the whole project (cached data, model, figures, rendered deck, screenshots) is at `submission/KAPPA_ethnohack2026_bundle.zip`; it was extracted to a clean directory where the tests passed and the pipeline reproduced the stored metrics. A public source repository, a *persistent* deployment URL, pitch recording, confirmed 2–5 member team and Devpost submission are **not** in place — a temporary public tunnel was used once to check the app over a real origin, but it expires with the sandbox and is not a deployment, and the organisers still need to confirm whether late registration and this team's eligibility are possible. Do not describe KAPPA as a completed submission until those gates are satisfied. The itemised state, including the exact commands and the claims this project deliberately does not make, is in [`docs/release_checklist.md`](docs/release_checklist.md).
+A portable copy of the whole project (cached data, model, figures, rendered deck, screenshots) is at `submission/KAPPA_ethnohack2026_bundle.zip`; it was extracted to a clean directory where the tests passed and the pipeline reproduced the stored metrics. A public source repository is now live at https://github.com/AdemolaTolulope/kappa-ethnohack2026; a *persistent* deployment URL, pitch recording, confirmed 2–5 member team and Devpost submission are **not** in place — a temporary public tunnel was used once to check the app over a real origin, but it expires with the sandbox and is not a deployment, and the organisers still need to confirm whether late registration and this team's eligibility are possible. Do not describe KAPPA as a completed submission until those gates are satisfied. The itemised state, including the exact commands and the claims this project deliberately does not make, is in [`docs/release_checklist.md`](docs/release_checklist.md).
 
 ## Repository state, hygiene and security
 
@@ -110,10 +110,12 @@ A portable copy of the whole project (cached data, model, figures, rendered deck
 - The app makes **no outbound network calls at request time**: it serves cached ChEMBL/CPIC/ClinVar/UniProt files
   from `data/`. Only explicit `src/*` fetch scripts touch the network, and they are never invoked by the API.
 - No telemetry, analytics, cookies, CDNs or third-party fonts; the frontend is a single local file.
-- **Publishing status: not published.** No git remote or GitHub credential exists in this environment, and the
-  target repository owner/name has not been confirmed. Per the project's own rule, KAPPA is not pushed anywhere
-  until an authorised route to the correct existing repository is provided; nothing is force-pushed and no
-  branch or tag is ever deleted.
+- **Published:** [https://github.com/AdemolaTolulope/kappa-ethnohack2026](https://github.com/AdemolaTolulope/kappa-ethnohack2026) — public, default branch `main`, fast-forward push from a linear local history.
+  No force-push, no history rewrite, no branch or tag deletion. The token used for that one push is not stored in
+  the repository, the git config or any file, and the owner was asked to revoke it immediately.
+  A fresh anonymous clone of the published repository passes `pytest -q` (**22 passed**) and reproduces the
+  reported metrics (`python -m src.run_pipeline` → ROC-AUC 0.781897, PR-AUC 0.939647, balanced accuracy 0.637210).
+- Repository metadata and first-push procedure: [`docs/github_publish_guide.md`](docs/github_publish_guide.md).
 
 ## Attribution and licences
 

@@ -1,9 +1,17 @@
 # Publishing KAPPA to a new public GitHub repository
 
-Status: **not executed.** No git remote, no credential and no GitHub integration exist in this environment
-(`git remote -v` is empty; the GitHub connector reports `unsupported`). Nothing has been pushed, force-pushed,
-or rewritten. This document is the exact, ordered procedure for the repo owner to run, plus what to verify
-afterwards.
+Status: **executed 2026-11-06.** The owner created the empty public repository and supplied a short-lived
+fine-grained token; the push ran from this workspace and was verified afterwards.
+
+| Item | Value |
+|---|---|
+| URL | [https://github.com/AdemolaTolulope/kappa-ethnohack2026](https://github.com/AdemolaTolulope/kappa-ethnohack2026) |
+| Default branch | `main` (local `master` was renamed to `main` before the first push — a branch-name change, no commit rewritten) |
+| Force-push / history rewrite / deleted refs | none |
+| Verification | anonymous `git clone` → `pytest -q` 22 passed; `python -m src.run_pipeline` reproduced ROC-AUC 0.781897 / PR-AUC 0.939647 / balanced accuracy 0.637210 |
+| Credential handling | token supplied in-session, used only in ephemeral `http.extraHeader` values, never written to the repo, `.git/config`, `.git-credentials` or any document; revoked by the owner afterwards |
+
+The procedure below is retained as documentation of the steps and of what to re-check on any future push.
 
 ## 0. What is being published
 
