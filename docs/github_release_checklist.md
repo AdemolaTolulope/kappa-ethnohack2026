@@ -3,7 +3,7 @@
 **Executed 2026-11-06:** the repository was created empty by its owner and the local history was pushed to
 [https://github.com/AdemolaTolulope/kappa-ethnohack2026](https://github.com/AdemolaTolulope/kappa-ethnohack2026) (default branch `main`, fast-forward only), then verified by an anonymous clone that passed the
 tests and reproduced the metrics. The notes below are kept as the record of what was checked beforehand.
-The workspace was a local git repository on branch `master`
+Before publishing, the workspace was a local git repository on branch `master`
 with a linear history and **no remote, no credentials, and no push has occurred** (checked 2026-11-05:
 `git remote -v` empty, no `gh` binary, no GitHub connector available in this environment). Publishing requires
 your approval, the correct repository identity, and an authorised access route. This checklist is the sequence
@@ -58,7 +58,7 @@ under CC BY-SA 3.0 with attribution, and that KAPPA's MIT licence does not relic
 ## 3. Actions that require your approval
 
 - [ ] Create the remote repository (public), e.g. `kappa-ethnohack-2026`.
-- [ ] `git remote add origin <url>` and `git push -u origin master` (or rename the branch to `main` first).
+- [x] `git remote add origin <url>`; local `master` was renamed to `main` and pushed (`git push -u origin main`).
 - [ ] Add repository description, topics (`natural-products`, `chembl`, `rdkit`, `pharmacogenomics`, `reproducibility`) and a social preview image if desired.
 - [ ] Create a tag/release, e.g. `v0.1.0-ethnohack`, with the deck PDF and bundle zip attached as release assets.
 - [ ] Double-check the public rendering of `README.md` (relative links must resolve on GitHub).

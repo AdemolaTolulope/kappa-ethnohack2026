@@ -96,13 +96,14 @@ Model scores are not affinity estimates, clinical outcomes or treatment benefit.
 
 ## EthnoHack submission status
 
-The slide deck is capped at 10 slides, renders cleanly ([`presentation/rendered/`](presentation/rendered/)), and written Devpost, demo and video drafts are prepared. The pipeline, **21** tests and the running interface have been verified locally, including a headless-browser pass with screenshots in [`results/smoke/`](results/smoke/).
+The slide deck is capped at 10 slides, renders cleanly ([`presentation/rendered/`](presentation/rendered/)), and written Devpost, demo and video drafts are prepared. The pipeline, **22** tests and the running interface have been verified locally, including a headless-browser pass with screenshots in [`results/smoke/`](results/smoke/).
 
 A portable copy of the whole project (cached data, model, figures, rendered deck, screenshots) is at `submission/KAPPA_ethnohack2026_bundle.zip`; it was extracted to a clean directory where the tests passed and the pipeline reproduced the stored metrics. A public source repository is now live at https://github.com/AdemolaTolulope/kappa-ethnohack2026; a *persistent* deployment URL, pitch recording, confirmed 2–5 member team and Devpost submission are **not** in place — a temporary public tunnel was used once to check the app over a real origin, but it expires with the sandbox and is not a deployment, and the organisers still need to confirm whether late registration and this team's eligibility are possible. Do not describe KAPPA as a completed submission until those gates are satisfied. The itemised state, including the exact commands and the claims this project deliberately does not make, is in [`docs/release_checklist.md`](docs/release_checklist.md).
 
 ## Repository state, hygiene and security
 
-- Branch `master`, linear history, no force-pushes or history rewrites. The release bundle zip is generated
+- Branch `main` (renamed from `master` before the first push, with no commit rewritten), linear history,
+  no force-pushes and no ref deletions. The release bundle zip is generated
   locally and is **not** tracked (`submission/*.zip` is in `.gitignore`); it is rebuilt from source on demand.
 - The tracked tree contains **no credentials, tokens, private keys, personal data or machine-specific absolute
   paths**; `.env.example` holds only `KAPPA_DATA_DIR=data`. An automated scan is described in

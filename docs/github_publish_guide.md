@@ -46,7 +46,7 @@ From the repository root, with an account that owns the new repo:
 ```bash
 git remote add origin git@github.com:<owner>/kappa-ethnohack2026.git   # or the HTTPS URL
 git remote -v                       # confirm the target before pushing
-git push -u origin master           # fast-forward only; never add --force
+git push -u origin main             # fast-forward only; never add --force
 ```
 
 If the organisation's default branch must be `main`, rename before the first push (`git branch -m master main`)
