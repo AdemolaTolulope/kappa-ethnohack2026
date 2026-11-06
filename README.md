@@ -70,6 +70,7 @@ Open http://localhost:8000. The app includes overview, plant-level evidence, com
 | Where does each byte come from, and under what licence? | [`docs/provenance_register.md`](docs/provenance_register.md), [`docs/data_provenance.md`](docs/data_provenance.md) |
 | Is it competition-ready? | [`docs/competition_readiness.md`](docs/competition_readiness.md) |
 | What is left before submission? | [`docs/release_checklist.md`](docs/release_checklist.md), [`docs/github_release_checklist.md`](docs/github_release_checklist.md) |
+| How is the repository published, and what must be verified first? | [`docs/github_publish_guide.md`](docs/github_publish_guide.md) |
 
 ## Project map
 
@@ -91,7 +92,7 @@ Open http://localhost:8000. The app includes overview, plant-level evidence, com
 
 ## Scientific and cultural guardrails
 
-Model scores are not affinity estimates, clinical outcomes or treatment benefit. Ethnobotanical reports do not establish efficacy. CPIC evidence is not applied to individuals. Traditional knowledge is not detached from its source and cultural context. Data sources retain their own licences; KAPPA’s MIT code licence does not relicense them. Generative-AI-assisted development is disclosed in [`submission/third_party_disclosures.md`](submission/third_party_disclosures.md).
+Model scores are not affinity estimates, clinical outcomes or treatment benefit. Ethnobotanical reports do not establish efficacy. CPIC evidence is not applied to individuals. Traditional knowledge is not detached from its source and cultural context. Data sources retain their own licences; KAPPA’s MIT code licence does not relicense them (`data/raw/LICENSE-NOTICE.md` states the ChEMBL CC BY-SA 3.0 obligation for the cached extract). Generative-AI-assisted development is disclosed in [`submission/third_party_disclosures.md`](submission/third_party_disclosures.md).
 
 ## EthnoHack submission status
 
