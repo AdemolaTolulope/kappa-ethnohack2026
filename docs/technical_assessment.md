@@ -23,7 +23,7 @@ behaviour), **removed** (deleted because it misrepresented evidence).
 | Ethnobotany | `data/processed/ethnobotanical_claims.json`; `src/ethnobotany/{__init__,__main__}.py`; `GET /api/ethnobotany` | functional (single record, **new this session**) | Fail-closed validator: required attribution fields, non-empty limitations, `compound_linkage` must be absent or `not asserted`, no record may claim efficacy; 3 tests pin the behaviour; CLI + API + UI render coverage | `python -m src.ethnobotany` → 1 validated record |
 | Backend | `backend/main.py` | functional | 11 routes (page, overview, compounds, structure SVG, graph, predict, pharmacogenomics, genomic-context, data-quality, metrics, export) | exercised route-by-route, see §3 |
 | Frontend | `frontend/index.html` | functional | Single-file SPA, 8 views, reads only relative `/api/*`, no external CDN | headless-browser pass, 0 console errors |
-| Tests | `tests/test_core.py`, `tests/test_api.py` | functional | 21 tests covering curation, splits, gating, graph provenance/topology, PGx filtering, ClinVar semantics, OOD withholding, ethnobotany record validation/fail-closed rejection, AD wording in the UI, API behaviour | `pytest -q` → 21 passed |
+| Tests | `tests/test_core.py`, `tests/test_api.py` | functional | 22 tests covering curation, splits, gating, graph provenance/topology, PGx filtering, ClinVar semantics, OOD withholding, ethnobotany record validation/fail-closed rejection, AD wording in the UI, API behaviour | `pytest -q` → 22 passed |
 | Figures | `scripts/make_figures.py`, `src/ml/train.py::_figures` | functional | 10 PNGs regenerated from results | `results/figures/` |
 | Deck | `scripts/build_deck.py` | functional | Generates a 10-slide deck; rendered and visually checked this session | `presentation/rendered/` |
 | Notebooks | `notebooks/*.ipynb` | partial | Read the executed outputs; they do not retrain models | 6 notebooks |
@@ -48,7 +48,7 @@ behaviour), **removed** (deleted because it misrepresented evidence).
 ## 3. Executed verification (actual outputs)
 
 ```
-pytest -q                                        -> 21 passed
+pytest -q                                        -> 22 passed
 python -m src.run_pipeline                       -> raw 7,482; curated 3,164; 2,505 active / 659 inactive
 python -m src.ml.duplicate_sensitivity           -> 3 rules scored; primary reproduction check True
 curl /api/overview|compounds|metrics|export|graph|pharmacogenomics|genomic-context  -> 200

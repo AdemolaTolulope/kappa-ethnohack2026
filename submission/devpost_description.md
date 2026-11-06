@@ -56,6 +56,6 @@ KAPPA demonstrates a reproducible, bounded research workflow—not a discovery c
 - **Members and actual contributions:** [Add confirmed names and contribution statements]
 - **No contributor identity or contribution is claimed in this draft.**
 
-Local drafts are prepared, the pipeline and interface are verified locally (21 tests, clean-room bundle reproduction to ≤1.2e-16, headless-browser pass), but the public repository, deployment URL, pitch video, confirmed team/eligibility and Devpost submission are not yet recorded. The posted EthnoHack event information lists a 2–5 person team, a public source repository, a pitch video of at most 10 minutes and a slide deck of at most 10 slides; the event landing-page and rules eligibility wording should be confirmed with organizers. See [`docs/phase11_audit.md`](../docs/phase11_audit.md).
+Local drafts are prepared, the pipeline and interface are verified locally (22 tests, clean-room bundle reproduction to ≤1.2e-16, headless-browser pass), but the public repository, deployment URL, pitch video, confirmed team/eligibility and Devpost submission are not yet recorded. The posted EthnoHack event information lists a 2–5 person team, a public source repository, a pitch video of at most 10 minutes and a slide deck of at most 10 slides; the event landing-page and rules eligibility wording should be confirmed with organizers. See [`docs/phase11_audit.md`](../docs/phase11_audit.md).
 
 **Repository / demo URL:** [Add only after authorization and deployment]

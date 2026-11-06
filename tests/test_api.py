@@ -73,3 +73,10 @@ def test_frontend_withholds_probability_outside_reference_range():
     html = client.get('/').text
     assert 'Not rankable · probability withheld' in html
     assert 'd.in_domain' in html
+
+def test_frontend_renders_ethnobotany_provenance_ids():
+    html = client.get('/').text
+    # provenance must be traceable in the UI, not only in the JSON payload
+    assert 'api/ethnobotany' in html
+    assert 'r.claim_id' in html
+    assert 'r.taxon' in html

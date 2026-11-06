@@ -94,9 +94,9 @@ boundary, and near-threshold behaviour should be read that way.
 
 | Check | Command | Result |
 |---|---|---|
-| Test suite | `pytest -q` | **21 passed** |
+| Test suite | `pytest -q` | **22 passed** |
 | Full pipeline | `python -m src.run_pipeline` | 7,482 raw → 3,164 curated (2,505 / 659); metrics, figures and GraphML regenerated |
-| Clean-room extraction | unzip the rebuilt `submission/KAPPA_ethnohack2026_bundle.zip` (126 files) in an empty dir | **21 passed**; pipeline reproduced stored metrics to ≤1.2e-16 |
+| Clean-room extraction | unzip the rebuilt `submission/KAPPA_ethnohack2026_bundle.zip` (129 files) in an empty dir | **22 passed**; pipeline reproduced stored metrics to ≤1.2e-16 (2026-11-06) |
 | Historical-metric diagnosis | `python scripts/diagnose_historical_metrics.py` | 7 protocols scored; none reproduces 0.832 / 0.966; primary unchanged (§1b) |
 | Ethnobotany validation | `python -m src.ethnobotany` and `GET /api/ethnobotany` | coverage note + 1 validated record; validator rejects records that assert compound linkage |
 | Sensitivity analysis | `python -m src.ml.duplicate_sensitivity` | primary reproduction check True |

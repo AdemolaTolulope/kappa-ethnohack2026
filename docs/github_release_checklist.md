@@ -16,7 +16,7 @@ to follow once you authorise it.
 - [x] No credentials or personal data: `grep -ri "api_key\|secret\|password\|token"` returns nothing; `.env.example` holds only `KAPPA_DATA_DIR=data`.
 - [x] Third-party licences documented (`docs/provenance_register.md`, `submission/third_party_disclosures.md`).
 - [x] AI-assisted development disclosed (`submission/third_party_disclosures.md`).
-- [x] 21 tests pass; the pipeline reproduces the stored primary metrics.
+- [x] 22 tests pass; the pipeline reproduces the stored primary metrics.
 - [x] Release bundle zip is **not tracked** (`submission/*.zip` in `.gitignore`), so the repository stays lean and
       the bundle is rebuilt from source instead of drifting out of date.
 
@@ -71,6 +71,6 @@ under CC BY-SA 3.0 with attribution, and that KAPPA's MIT licence does not relic
 ## 5. Post-publish verification
 
 - [ ] Open the repo in a private/incognito window: does the README render, do images load, do links resolve?
-- [ ] Clone into a clean directory and run `pytest -q` (expect 21 passed) and `python -m src.run_pipeline`.
+- [ ] Clone into a clean directory and run `pytest -q` (expect 22 passed) and `python -m src.run_pipeline`.
 - [ ] Check the licence badge wording does not imply the data are MIT-licensed.
 - [ ] Record the commit SHA in the Devpost draft and in `docs/release_checklist.md`.

@@ -82,7 +82,7 @@ for i,(a,b) in enumerate([('Explore','Measured structures and descriptors'),('In
 text(s,.85,6.15,11,.3,'Live demo: plant context → compound table → model card → graph → methods/provenance.',12,GOLD)
 #10
 s=base(10,'Useful now. Clear about what comes next.')
-shape(s,.75,1.6,5.7,3.9,PANEL,True);text(s,1.05,1.92,4.8,.35,'DELIVERED',15,MINT,True);text(s,1.05,2.5,4.8,2.6,'Working API + UI (local)\n3,164-record data pipeline\nScaffold benchmark + 21 tests\nOut-of-domain refusal + ethnobotany validator\nEvidence graph + audit docs\n10-slide deck + rendered PDF',15,WHITE)
+shape(s,.75,1.6,5.7,3.9,PANEL,True);text(s,1.05,1.92,4.8,.35,'DELIVERED',15,MINT,True);text(s,1.05,2.5,4.8,2.6,'Working API + UI (local)\n3,164-record data pipeline\nScaffold benchmark + 22 tests\nOut-of-domain refusal + ethnobotany validator\nEvidence graph + audit docs\n10-slide deck + rendered PDF',15,WHITE)
 shape(s,6.9,1.6,5.7,3.9,PANEL,True);text(s,7.2,1.92,4.8,.35,'NEXT VALIDATION',15,CYAN,True);text(s,7.2,2.55,4.8,2.4,'Primary-source ethnobotanical evidence + permission\nIndependent assay/database evaluation\nClinical PGx update + indication checks\nProbability calibration and domain review\nProspective experimental follow-up',16,WHITE)
 text(s,1.05,6.15,11.0,.35,'KAPPA turns fragmented evidence into a traceable research question—not a therapeutic promise.',17,GOLD,True)
 r.save(P/'presentation/KAPPA_pitch_deck.pptx')

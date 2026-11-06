@@ -82,7 +82,7 @@ implementation and the discipline of what it refuses to output.
 python -m src.run_pipeline             # rebuild data, model, metrics, figures, graph
 python -m src.ml.duplicate_sensitivity # three aggregation rules, side by side
 python scripts/make_figures.py         # regenerate result figures
-pytest -q                              # 21 tests
+pytest -q                              # 22 tests
 uvicorn backend.main:app --host 0.0.0.0 --port 8000
 ```
 
