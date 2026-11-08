@@ -68,13 +68,17 @@ python, rdkit, scikit-learn, pandas, numpy, fastapi, networkx, matplotlib, javas
 
 ### Video demo link
 
-**Still required** — the form demands a public video URL (YouTube/Vimeo/Loom), ≤ 10 minutes.
-Use `submission/video_narration.md` (749 words ≈ 5.7 minutes) and record the app live:
-overview → plant & knowledge → compound explorer → prioritisation with **sucrose first** (refusal) then curcumin →
-evidence graph (pilot + PGx scopes) → methods/provenance. Say the source repository URL and the deadline-safe
-claim: *research prototype, no clinical or efficacy claims.*
+A narrated 5:35 demo has been produced: `results/video/KAPPA_demo.mp4` (1920×1080, 27.9 MB). Chapters, the
+production method and the integrity checks are in [`video_notes.md`](video_notes.md).
 
----
+- Repo-hosted copy (release asset): `https://github.com/AdemolaTolulope/kappa-ethnohack2026/releases/download/v0.1.0-ethnohack/KAPPA_demo.mp4`
+- Release page: `https://github.com/AdemolaTolulope/kappa-ethnohack2026/releases/tag/v0.1.0-ethnohack`
+
+**For the Devpost field, use YouTube Unlisted** (or Loom/Vimeo) so it embeds with a player:
+1. youtube.com → Create → Upload video → select `results/video/KAPPA_demo.mp4`
+2. Title: `KAPPA — evidence-separated phyto-pharmacogenomics (EthnoHack 2026 demo)`; Visibility: **Unlisted**
+3. Paste the `https://youtu.be/…` link into the Devpost video field and open it in an incognito window to confirm
+   it plays without signing in.
 
 ## Step 3 — Additional info (judges only)
 
