@@ -54,17 +54,19 @@ python, rdkit, scikit-learn, pandas, numpy, fastapi, networkx, matplotlib, javas
 > so it is uploaded in **Additional info** below rather than linked. Do not add a URL that 404s. If you want a
 > hosted download, attach the zip as a GitHub **release asset** and use that URL.
 
-### Image gallery (upload these files, in this order)
+### Image gallery — six 3:2 files are ready
 
-| File | Caption |
-|---|---|
-| `submission/thumbnail.png` | Thumbnail (already uploaded separately) — skip here |
-| `results/figures/model_comparison.png` | Scaffold-held-out ROC-AUC: Random Forest 0.782 vs logistic baseline 0.703 |
-| `results/smoke/prediction_out_of_domain.png` | The refusal rule: sucrose is "Not rankable · probability withheld" (similarity 0.193 < 0.3236) |
-| `results/smoke/prediction.png` | In-domain: curcumin triage 0.150, flagged as an exact training-structure match (retrospective) |
-| `results/figures/duplicate_sensitivity.png` | Duplicate-aggregation sensitivity: ranking is stable, the threshold-0.5 operating point is not |
-| `results/figures/pharmacogenomics_graph.png` | Disconnected PGx component: verified CPIC CYP2C19–clopidogrel guideline, no patient genotype |
-| `results/smoke/ethnobotany.png` | Provenance-labelled ethnobotanical record with coverage statement and limitations |
+All six are **1800×1200 (exactly 3:2), PNG, 145 KB – 890 KB** (limit 5 MB), captioned in-frame. Local copies are in
+`results/gallery/`; the same files are in your Google Drive as `KAPPA_gallery_1…6_*.png`.
+
+| Upload order | File | Caption for the Devpost field |
+|---|---|---|
+| 1 | `results/gallery/g1_model_comparison.png` | Scaffold-held-out benchmark: Random Forest ROC-AUC 0.782 vs logistic 0.703 at 82.6% test prevalence |
+| 2 | `results/gallery/g2_refusal.png` | The refusal rule in code: sucrose similarity 0.193 < 0.3236 → "Not rankable · probability withheld" |
+| 3 | `results/gallery/g3_in_domain.png` | In-domain: curcumin 15.0% uncalibrated, flagged as an exact training match (retrospective) |
+| 4 | `results/gallery/g4_duplicates.png` | Duplicate-structure sensitivity: coverage stable, threshold-0.5 operating point not |
+| 5 | `results/gallery/g5_pgx.png` | Disconnected PGx component: verified CPIC CYP2C19–clopidogrel guideline, no patient genotype |
+| 6 | `results/gallery/g6_ethnobotany.png` | Provenance-labelled ethnobotany: one attributed 2012 report with limitations and coverage statement |
 
 ### Video demo link
 
@@ -82,7 +84,9 @@ production method and the integrity checks are in [`video_notes.md`](video_notes
 
 ## Step 3 — Additional info (judges only)
 
-**Upload this file:** `submission/KAPPA_ethnohack2026_bundle.zip` — 131 files, 16 MB (limit 35 MB). It contains
+**Upload this file:** `submission/KAPPA_ethnohack2026_bundle.zip` — 138 files, 15.7 MB (limit 35 MB).
+It is also in your Google Drive as `KAPPA_ethnohack2026_bundle.zip` if you are uploading from another device,
+and attached to the GitHub release. It contains
 the cached source data, the trained model, the pipeline, tests, figures, the rendered deck and the run instructions.
 
 Judge-facing note to paste into the "additional info" text field, if the form offers one:
